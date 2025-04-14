@@ -1,0 +1,99 @@
+{
+  "type": "Document",
+  "loc": {
+    "start": {
+      "column": 0,
+      "line": 1
+    },
+    "end": {
+      "column": 0,
+      "line": 9
+    }
+  },
+  "range": [
+    0,
+    48
+  ],
+  "children": [
+    {
+      "type": "Header",
+      "depth": 1,
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 3
+        },
+        "end": {
+          "column": 10,
+          "line": 3
+        }
+      },
+      "range": [
+        2,
+        12
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "Markdown",
+          "loc": {
+            "start": {
+              "column": 2,
+              "line": 3
+            },
+            "end": {
+              "column": 10,
+              "line": 3
+            }
+          },
+          "range": [
+            4,
+            12
+          ],
+          "raw": "Markdown"
+        }
+      ],
+      "raw": "# Markdown"
+    },
+    {
+      "type": "Paragraph",
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 5
+        },
+        "end": {
+          "column": 12,
+          "line": 8
+        }
+      },
+      "range": [
+        14,
+        47
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "+++\ntitle = post\n+++\nand another.",
+          "loc": {
+            "start": {
+              "column": 0,
+              "line": 5
+            },
+            "end": {
+              "column": 12,
+              "line": 8
+            }
+          },
+          "range": [
+            14,
+            47
+          ],
+          "raw": "+++\ntitle = post\n+++\nand another."
+        }
+      ],
+      "raw": "+++\ntitle = post\n+++\nand another."
+    }
+  ],
+  "raw": "\n\n# Markdown\n\n+++\ntitle = post\n+++\nand another.\n"
+}

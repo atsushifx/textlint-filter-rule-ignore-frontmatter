@@ -52,14 +52,21 @@
     "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
     "@textlint/types": "^14.6.0",
+    "@types/debug": "^4.1.12",
+    "@types/mdast": "^4.0.4",
     "@types/node": "^22.14.1",
     "@types/unist": "^3.0.3",
     "gray-matter": "^4.0.3",
+    "neotraverse": "^0.6.18",
+    "remark": "^15.0.1",
     "remark-footnotes": "^5.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.5"
+  },
+  "dependencies": {
+    "debug": "^4.4.0"
   }
 }

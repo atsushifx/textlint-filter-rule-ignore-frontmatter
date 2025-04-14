@@ -5,21 +5,23 @@
 // src/parse-markdown-with-toml.ts
 
 // type
-import type { Node } from 'unist';
+import type { Root } from 'mdast';
 
-// libs
+// Load plugins
+import { unified } from 'unified';
 
-const parseMarkdownWithTOML = (text: string): Node => {
-  return {
-    type: 'Document',
-    position: {
-      start: { line: 1, column: 0, offset: 0 },
-      end: { line: 1, column: 0, offset: 0 },
-    },
-    data: {
-      raw: text,
-    },
-  };
+import frontmatter from 'remark-frontmatter';
+import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+
+const remark = unified()
+  .use(remarkParse)
+  .use(frontmatter, ['yaml', 'toml'])
+  .use(remarkGfm);
+
+const parseMarkdownWithTOML = (text: string): Root => {
+  return remark.parse(text);
 };
+
 // export
 export { parseMarkdownWithTOML };
