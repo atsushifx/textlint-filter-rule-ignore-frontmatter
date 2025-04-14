@@ -7,17 +7,19 @@
 //
 // @description<<
 //
-// Configuration for tsup bundler:
+// Configuration for tsup bundler using shared base config:
 // - Outputs CommonJS + ESM modules
 // - Generates declaration files (.d.ts)
-// - Cleans dist/ before build
-// - Excludes config files from bundling
+// - Cleans output directory before build
+// - Excludes config and test files from bundling
 //
 // <<
 
 import { defineConfig } from 'tsup';
+import { baseConfig } from '../../../tsup.config.base';
 
 export default defineConfig({
+  ...baseConfig,
   entry: [
     'src/index.ts',
     'src/**/*.ts',
@@ -25,19 +27,6 @@ export default defineConfig({
     '!src/**/*.spec.ts',
     '!src/tests/**',
   ],
-  format: ['cjs', 'esm'],
-  dts: true,
-  outDir: 'dist',
-  clean: true,
-  // for bundle
-  minify: true,
-  sourcemap: true,
-  target: 'es2022',
-
-  // not bundle files
-  external: [
-    'eslint.config.js',
-    'tsconfig.json',
-    '**/types/**',
-  ],
+  tsconfig: './tsconfig.json',
+  outDir: 'lib', // or "dist" — 選択に応じて調整
 });

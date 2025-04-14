@@ -1,0 +1,48 @@
+{
+	"@(#)": "Base tsconfig for textlint monorepo with tsup and strict typing",
+	"compilerOptions": {
+		// ✅ 厳格チェック
+		"alwaysStrict": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		// ✅ ターゲットとモジュール解決
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		// ✅ 型解決と互換性
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"declaration": true,
+		"declarationMap": true,
+		// ✅ 出力・ソースマップ
+		"sourceMap": true,
+		"newLine": "LF",
+		"composite": true,
+		"incremental": true,
+		// ✅ ライブラリ
+		"lib": [
+			"ESNext",
+			"DOM"
+		],
+		// ✅ エイリアス設定（←追加！）
+		"baseUrl": ".",
+		"types": [
+			"node"
+		],
+		"paths": {
+			"@/*": [
+				"./*"
+			]
+		},
+		// ✅ 型補完
+		"typeRoots": [
+			"./types",
+			"./node_modules/@types"
+		]
+	},
+	"exclude": [
+		"node_modules",
+		"dist"
+	]
+}

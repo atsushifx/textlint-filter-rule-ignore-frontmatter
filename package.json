@@ -20,5 +20,11 @@
     "hugo",
     "markdown"
   ],
-  "packageManager": "pnpm@10.8.0"
+  "packageManager": "pnpm@10.8.0",
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "secretlint": "^9.3.0",
+    "tsup": "^8.4.0",
+    "vitest": "^3.1.1"
+  }
 }
