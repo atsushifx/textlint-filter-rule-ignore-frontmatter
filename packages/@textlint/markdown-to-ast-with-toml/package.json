@@ -18,8 +18,10 @@
     "markdown-parser"
   ],
   "scripts": {
-    "build": "tsup",
-    "clean": "rimraf dist .tsbuildinfo .turbo .vitest",
+    "build:cjs": "tsup --config tsup.config.ts",
+    "build:esm": "tsup --config tsup.config.module.ts",
+    "build": "pnpm run build:cjs && pnpm run build:esm",
+    "clean": "rimraf lib module",
     "format:dprint": "dprint fmt",
     "check:dprint": "dprint check",
     "check:types": "tsc --noEmit",
@@ -36,26 +38,16 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.24.0",
+    "@iarna/toml": "^3.0.0",
     "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
     "@textlint/types": "^14.6.0",
+    "@types/node": "^22.14.1",
     "@types/unist": "^3.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.29.1",
-    "@typescript-eslint/parser": "^8.29.1",
-    "cspell": "^8.18.1",
-    "eslint": "^9.24.0",
-    "eslint-config-prettier": "^10.1.2",
+    "gray-matter": "^4.0.3",
     "remark-frontmatter": "^5.0.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
-    "rimraf": "^6.0.1",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.3",
-    "unified": "^11.0.5",
-    "vitest": "^3.1.1",
-    "gray-matter": "^4.0.3",
-    "@iarna/toml": "^3.0.0"
+    "unified": "^11.0.5"
   }
 }

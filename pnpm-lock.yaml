@@ -8,24 +8,27 @@ importers:
 
   .:
     devDependencies:
-      '@types/node':
-        specifier: ^22.14.1
-        version: 22.14.1
+      '@secretlint/secretlint-rule-preset-recommend':
+        specifier: ^9.3.0
+        version: 9.3.0
+      cspell:
+        specifier: ^8.18.1
+        version: 8.18.1
       secretlint:
         specifier: ^9.3.0
         version: 9.3.0
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.7.1)
+      tsx:
+        specifier: ^4.19.3
+        version: 4.19.3
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1)
 
   packages/@textlint/markdown-to-ast-with-toml:
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.24.0
-        version: 9.24.0
       '@iarna/toml':
         specifier: ^3.0.0
         version: 3.0.0
@@ -38,24 +41,12 @@ importers:
       '@textlint/types':
         specifier: ^14.6.0
         version: 14.6.0
+      '@types/node':
+        specifier: ^22.14.1
+        version: 22.14.1
       '@types/unist':
         specifier: ^3.0.3
         version: 3.0.3
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^8.29.1
-        version: 8.29.1(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.8.3))(eslint@9.24.0)(typescript@5.8.3)
-      '@typescript-eslint/parser':
-        specifier: ^8.29.1
-        version: 8.29.1(eslint@9.24.0)(typescript@5.8.3)
-      cspell:
-        specifier: ^8.18.1
-        version: 8.18.1
-      eslint:
-        specifier: ^9.24.0
-        version: 9.24.0
-      eslint-config-prettier:
-        specifier: ^10.1.2
-        version: 10.1.2(eslint@9.24.0)
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -68,24 +59,9 @@ importers:
       remark-stringify:
         specifier: ^11.0.0
         version: 11.0.0
-      rimraf:
-        specifier: ^6.0.1
-        version: 6.0.1
-      tsup:
-        specifier: ^8.4.0
-        version: 8.4.0(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.7.1)
-      tsx:
-        specifier: ^4.19.3
-        version: 4.19.3
-      typescript:
-        specifier: ^5.8.3
-        version: 5.8.3
       unified:
         specifier: ^11.0.5
         version: 11.0.5
-      vitest:
-        specifier: ^3.1.1
-        version: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1)
 
   packages/@textlint/textlint-filter-rule-ignore-frontmatter:
     devDependencies:
@@ -763,6 +739,10 @@ packages:
 
   '@secretlint/resolver@9.3.0':
     resolution: {integrity: sha512-4vynrpJ8vfhjBclZeK87Pg/TwGinCZK955Ec3pa5j4ihLVwjNHCYWRY9kaQhlE1Nc/h7zk98Bv7SoZIZaYrXBw==}
+
+  '@secretlint/secretlint-rule-preset-recommend@9.3.0':
+    resolution: {integrity: sha512-jfic3wP8RieWC5+q/miUgmDHdNXXYrbRj3+5C/I6MrMElPODkGXlr+Pj+wiQSloWSgQhnxQyiXn684sVJ3NPgg==}
+    engines: {node: ^14.13.1 || >=16.0.0}
 
   '@secretlint/source-creator@9.3.0':
     resolution: {integrity: sha512-DVSaEgEvnMIOLyqfZBFb/d0LvgozOIhRXxpEdrvTfHKcFqlccRn4ykdmLi3I57vRTy2l9hZJvpSZU2fid69/9A==}
@@ -2893,6 +2873,8 @@ snapshots:
   '@secretlint/profiler@9.3.0': {}
 
   '@secretlint/resolver@9.3.0': {}
+
+  '@secretlint/secretlint-rule-preset-recommend@9.3.0': {}
 
   '@secretlint/source-creator@9.3.0':
     dependencies:

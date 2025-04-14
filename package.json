@@ -22,9 +22,11 @@
   ],
   "packageManager": "pnpm@10.8.0",
   "devDependencies": {
-    "@types/node": "^22.14.1",
+    "@secretlint/secretlint-rule-preset-recommend": "^9.3.0",
+    "cspell": "^8.18.1",
     "secretlint": "^9.3.0",
     "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
     "vitest": "^3.1.1"
   }
 }
