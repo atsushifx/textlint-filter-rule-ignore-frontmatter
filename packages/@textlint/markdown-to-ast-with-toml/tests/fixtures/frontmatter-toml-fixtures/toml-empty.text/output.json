@@ -1,0 +1,43 @@
+{
+  "type": "Document",
+  "raw": "+++\n+++\n\n# Markdown",
+  "range": [0, 19],
+  "loc": {
+    "start": { "line": 1, "column": 0 },
+    "end": { "line": 4, "column": 10 }
+  },
+  "children": [
+    {
+      "type": "Toml",
+      "raw": "+++\n+++",
+      "range": [0, 7],
+      "loc": {
+        "start": { "line": 1, "column": 0 },
+        "end": { "line": 2, "column": 3 }
+      },
+      "value": ""
+    },
+    {
+      "type": "Header",
+      "depth": 1,
+      "raw": "# Markdown",
+      "range": [9, 19],
+      "loc": {
+        "start": { "line": 4, "column": 0 },
+        "end": { "line": 4, "column": 10 }
+      },
+      "children": [
+        {
+          "type": "Str",
+          "raw": "Markdown",
+          "value": "Markdown",
+          "range": [11, 19],
+          "loc": {
+            "start": { "line": 4, "column": 2 },
+            "end": { "line": 4, "column": 10 }
+          }
+        }
+      ]
+    }
+  ]
+}

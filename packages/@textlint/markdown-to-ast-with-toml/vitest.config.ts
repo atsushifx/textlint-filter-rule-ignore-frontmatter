@@ -20,6 +20,7 @@ export default defineConfig({
     environment: 'node',
     include: [
       'src/**/tests/*.{test,spec}.ts',
+      './tests/*.{test,spec}.ts',
     ],
   },
 });

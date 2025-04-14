@@ -1,0 +1,79 @@
+{
+  "type": "Document",
+  "loc": {
+    "start": {
+      "column": 0,
+      "line": 1
+    },
+    "end": {
+      "column": 0,
+      "line": 8
+    }
+  },
+  "range": [
+    0,
+    56
+  ],
+  "children": [
+    {
+      "type": "Toml",
+      "value": "title = post\n[object]\n  key = \"+++\"",
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 1
+        },
+        "end": {
+          "column": 3,
+          "line": 5
+        }
+      },
+      "range": [
+        0,
+        43
+      ],
+      "raw": "+++\ntitle = post\n[object]\n  key = \"+++\"\n+++"
+    },
+    {
+      "type": "Header",
+      "depth": 1,
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 7
+        },
+        "end": {
+          "column": 10,
+          "line": 7
+        }
+      },
+      "range": [
+        45,
+        55
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "Markdown",
+          "loc": {
+            "start": {
+              "column": 2,
+              "line": 7
+            },
+            "end": {
+              "column": 10,
+              "line": 7
+            }
+          },
+          "range": [
+            47,
+            55
+          ],
+          "raw": "Markdown"
+        }
+      ],
+      "raw": "# Markdown"
+    }
+  ],
+  "raw": "+++\ntitle = post\n[object]\n  key = \"+++\"\n+++\n\n# Markdown\n"
+}

@@ -1,0 +1,99 @@
+{
+  "type": "Document",
+  "loc": {
+    "start": {
+      "column": 0,
+      "line": 1
+    },
+    "end": {
+      "column": 0,
+      "line": 8
+    }
+  },
+  "range": [
+    0,
+    35
+  ],
+  "children": [
+    {
+      "type": "Paragraph",
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 3
+        },
+        "end": {
+          "column": 3,
+          "line": 5
+        }
+      },
+      "range": [
+        2,
+        22
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "+++\ntitle = post\n+++",
+          "loc": {
+            "start": {
+              "column": 0,
+              "line": 3
+            },
+            "end": {
+              "column": 3,
+              "line": 5
+            }
+          },
+          "range": [
+            2,
+            22
+          ],
+          "raw": "+++\ntitle = post\n+++"
+        }
+      ],
+      "raw": "+++\ntitle = post\n+++"
+    },
+    {
+      "type": "Header",
+      "depth": 1,
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 7
+        },
+        "end": {
+          "column": 10,
+          "line": 7
+        }
+      },
+      "range": [
+        24,
+        34
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "Markdown",
+          "loc": {
+            "start": {
+              "column": 2,
+              "line": 7
+            },
+            "end": {
+              "column": 10,
+              "line": 7
+            }
+          },
+          "range": [
+            26,
+            34
+          ],
+          "raw": "Markdown"
+        }
+      ],
+      "raw": "# Markdown"
+    }
+  ],
+  "raw": "\n\n+++\ntitle = post\n+++\n\n# Markdown\n"
+}
