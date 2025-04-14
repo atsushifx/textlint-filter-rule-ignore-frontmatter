@@ -1,0 +1,33 @@
+{
+  "@(#)": "tsconfig for textlint plugin development using tsup",
+  "compilerOptions": {
+    // ✅ 厳格なチェック系
+    "alwaysStrict": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // ✅ 出力ターゲット
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+
+    // ✅ 型チェックと出力
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+
+    // ✅ 出力・ルート構成
+    "rootDir": "src", // 入力元
+    "outDir": "dist", // 出力先
+    "typeRoots": ["./types", "./node_modules/@types"] // ✅ 開発用型補完も有効
+  },
+  "include": [
+    "src",
+    "types" // ✅ textlint-tester.d.tsなどの手動型
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+    // 📌 "tests/" は `src/tests` にあるなら exclude しなくてもOK（tsupで除外してるため）
+  ]
+}
