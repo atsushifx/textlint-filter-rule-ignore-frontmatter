@@ -41,7 +41,7 @@
     "lint": "pnpm exec eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "pnpm exec eslint \"src/**/*.{ts,tsx}\" --fix",
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
-    "test": "pnpm exec vitest run",
+    "test": "pnpm exec vitest run ./tests/",
     "test:watch": "pnpm exec vitest"
   },
   "publishConfig": {

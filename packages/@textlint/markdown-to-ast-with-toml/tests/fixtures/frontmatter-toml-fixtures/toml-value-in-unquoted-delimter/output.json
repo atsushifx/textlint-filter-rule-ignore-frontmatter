@@ -1,0 +1,79 @@
+{
+  "type": "Document",
+  "loc": {
+    "start": {
+      "column": 0,
+      "line": 1
+    },
+    "end": {
+      "column": 0,
+      "line": 6
+    }
+  },
+  "range": [
+    0,
+    34
+  ],
+  "children": [
+    {
+      "type": "Toml",
+      "value": "invalid = +++",
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 1
+        },
+        "end": {
+          "column": 3,
+          "line": 3
+        }
+      },
+      "range": [
+        0,
+        21
+      ],
+      "raw": "+++\ninvalid = +++\n+++"
+    },
+    {
+      "type": "Header",
+      "depth": 1,
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 5
+        },
+        "end": {
+          "column": 10,
+          "line": 5
+        }
+      },
+      "range": [
+        23,
+        33
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "Markdown",
+          "loc": {
+            "start": {
+              "column": 2,
+              "line": 5
+            },
+            "end": {
+              "column": 10,
+              "line": 5
+            }
+          },
+          "range": [
+            25,
+            33
+          ],
+          "raw": "Markdown"
+        }
+      ],
+      "raw": "# Markdown"
+    }
+  ],
+  "raw": "+++\ninvalid = +++\n+++\n\n# Markdown\n"
+}

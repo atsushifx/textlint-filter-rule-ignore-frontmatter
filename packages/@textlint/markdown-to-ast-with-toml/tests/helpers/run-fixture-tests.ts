@@ -24,6 +24,11 @@ function runUnitFixtureTests(categoryPath: string, parser: (text: string) => Txt
 
   describe(`Fixtures from ${label ?? path.basename(categoryPath)}`, () => {
     for (const caseName of fixtureCases) {
+      if (caseName.startsWith('#')) {
+        console.warn(`⚠ Skipping fixture case "${caseName}"`);
+        continue;
+      }
+
       const caseDir = path.join(categoryPath, caseName);
       const inputPath = path.join(caseDir, 'input.md');
       const outputPath = path.join(caseDir, 'output.json');

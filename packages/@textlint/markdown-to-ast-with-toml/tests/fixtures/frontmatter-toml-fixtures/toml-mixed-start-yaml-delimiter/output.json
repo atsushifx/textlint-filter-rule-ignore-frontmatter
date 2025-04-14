@@ -1,0 +1,117 @@
+{
+  "type": "Document",
+  "loc": {
+    "start": {
+      "column": 0,
+      "line": 1
+    },
+    "end": {
+      "column": 0,
+      "line": 6
+    }
+  },
+  "range": [
+    0,
+    33
+  ],
+  "children": [
+    {
+      "type": "HorizontalRule",
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 1
+        },
+        "end": {
+          "column": 3,
+          "line": 1
+        }
+      },
+      "range": [
+        0,
+        3
+      ],
+      "raw": "---"
+    },
+    {
+      "type": "Paragraph",
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 2
+        },
+        "end": {
+          "column": 3,
+          "line": 3
+        }
+      },
+      "range": [
+        4,
+        20
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "title = post\n+++",
+          "loc": {
+            "start": {
+              "column": 0,
+              "line": 2
+            },
+            "end": {
+              "column": 3,
+              "line": 3
+            }
+          },
+          "range": [
+            4,
+            20
+          ],
+          "raw": "title = post\n+++"
+        }
+      ],
+      "raw": "title = post\n+++"
+    },
+    {
+      "type": "Header",
+      "depth": 1,
+      "loc": {
+        "start": {
+          "column": 0,
+          "line": 5
+        },
+        "end": {
+          "column": 10,
+          "line": 5
+        }
+      },
+      "range": [
+        22,
+        32
+      ],
+      "children": [
+        {
+          "type": "Str",
+          "value": "Markdown",
+          "loc": {
+            "start": {
+              "column": 2,
+              "line": 5
+            },
+            "end": {
+              "column": 10,
+              "line": 5
+            }
+          },
+          "range": [
+            24,
+            32
+          ],
+          "raw": "Markdown"
+        }
+      ],
+      "raw": "# Markdown"
+    }
+  ],
+  "raw": "---\ntitle = post\n+++\n\n# Markdown\n"
+}
