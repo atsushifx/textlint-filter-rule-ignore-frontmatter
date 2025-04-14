@@ -4,8 +4,20 @@
   "description": "Markdown to AST parser with TOML front matter support for textlint. Useful for tools like Zola and Hugo.",
   "author": "Furukawa Atsushi <atsushifx@gmail.com>",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./module/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    "import": "./module/index.js",
+    "require": "./lib/index.js",
+    "types": "./lib/index.d.ts"
+  },
+  "files": [
+    "lib",
+    "module",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "module",
   "keywords": [
     "textlint",
@@ -32,11 +44,6 @@
     "test": "pnpm exec vitest run",
     "test:watch": "pnpm exec vitest"
   },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
   "devDependencies": {
     "@iarna/toml": "^3.0.0",
     "@textlint/ast-node-types": "^14.6.0",
