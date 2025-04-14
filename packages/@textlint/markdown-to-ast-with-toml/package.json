@@ -1,0 +1,61 @@
+{
+  "name": "@textlint/markdown-to-ast-with-toml",
+  "version": "0.1.0",
+  "description": "Markdown to AST parser with TOML front matter support for textlint. Useful for tools like Zola and Hugo.",
+  "author": "Furukawa Atsushi <atsushifx@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "keywords": [
+    "textlint",
+    "markdown",
+    "parser",
+    "frontmatter",
+    "toml",
+    "zola",
+    "hugo",
+    "markdown-parser"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist .tsbuildinfo .turbo .vitest",
+    "format:dprint": "dprint fmt",
+    "check:dprint": "dprint check",
+    "check:types": "tsc --noEmit",
+    "check:spellcheck": "pnpm exec cspell --config .vscode/cspell.json",
+    "lint": "pnpm exec eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "pnpm exec eslint \"src/**/*.{ts,tsx}\" --fix",
+    "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
+    "test": "pnpm exec vitest run",
+    "test:watch": "pnpm exec vitest"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@textlint/ast-node-types": "^14.6.0",
+    "@textlint/kernel": "^14.6.0",
+    "@textlint/types": "^14.6.0",
+    "@types/unist": "^3.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "cspell": "^8.18.1",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
+    "remark-frontmatter": "^5.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "unified": "^11.0.5",
+    "vitest": "^3.1.1",
+    "gray-matter": "^4.0.3",
+    "@iarna/toml": "^3.0.0"
+  }
+}
