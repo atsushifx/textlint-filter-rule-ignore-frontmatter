@@ -18,7 +18,7 @@ export { ASTNodeTypes as Syntax };
  * parse Markdown text and return ast mapped location info.
  * @param {string} text
  */
-export function parse(text: string): TxtDocumentNode {
+function parse(text: string): TxtDocumentNode {
   // remark-parse's AST does not consider BOM
   // AST's position does not +1 by BOM
   // So, just trim BOM and parse it for `raw` property
@@ -61,5 +61,8 @@ export function parse(text: string): TxtDocumentNode {
       }
     }
   });
-  return ast as TxtDocumentNode;
+  return ast as unknown as TxtDocumentNode;
 }
+
+// export
+export { parse };
