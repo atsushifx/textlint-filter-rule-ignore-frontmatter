@@ -1,0 +1,24 @@
+{
+  "name": "textlint-filter-rule-ignore-frontmatter",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Monorepo for @textlint/textlint-filter-rule-ignore-frontmatter: skips YAML/TOML front matter in markdown. Useful with Zola, Hugo, etc.",
+  "author": "Furukawa Atsushi <atsushifx@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter.git"
+  },
+  "keywords": [
+    "textlint",
+    "filter-rule",
+    "frontmatter",
+    "ignore",
+    "yaml",
+    "toml",
+    "zola",
+    "hugo",
+    "markdown"
+  ],
+  "packageManager": "pnpm@10.8.0"
+}
