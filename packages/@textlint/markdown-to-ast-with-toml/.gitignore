@@ -1,8 +1,9 @@
-## @(#) : gitignore for textlint filter (skip-frontmatter)
+## @(#) : gitignore for monorepo sub repository
 #
-# @version	1.0.0
+# @version  1.0.0
 # @author   Furukawa, Atsushi <atsushifx@aglabo.com>
 # @since    2025-04-11
+# @license	MIT
 #
 # @description<<
 #
@@ -36,90 +37,39 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-# Node diagnostic reports
+# Diagnostic reports
 report.*.json
 
-# Runtime data
+# Runtime files
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Coverage tools
-lib-cov
-coverage
-*.lcov
-.nyc_output
-
-# Build & intermediate dirs
-build/Release
-node_modules/
-jspm_packages/
-web_modules/
-bower_components
-.lock-wscript
-lib-cov
-
-# Tool caches
-.grunt
-.cache
-.parcel-cache
-.rpt2_cache/
-.rts2_cache_*/
-.fusebox/
-.dynamodb/
-.tern-port
-.vscode-test
-
-# TypeScript
+## ─── TypeScript artifacts ────────────────────────────────
 *.tsbuildinfo
 
-# Lint caches
+## ─── Build outputs ───────────────────────────────────────
+dist/
+lib/
+module/
+
+
+## ─── Cache and temp ───────────────────────────────────────
+.cache/
+.rpt2_cache/
+.rts2_cache_*/
+.parcel-cache
+.vitest
+
+## ─── Lint and test caches ────────────────────────────────
 *cache
 .eslintcache
 .stylelintcache
 
-# Output artifacts
+## ─── Others ───────────────────────────────────────────────
+node_modules/
 *.tgz
-.yarn-integrity
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
 
-# Dotenv
 .env
 .env.*.local
-
-## ─── Framework specific ───────────────────────────────────
-# Next.js
-.next
-out
-
-# Nuxt.js
-.nuxt
-dist
-
-# Gatsby
-.cache/
-
-
-
-# VuePress
-.vuepress/dist
-.temp
-.cache/
-
-# VitePress
-**/.vitepress/dist
-**/.vitepress/cache
-
-# Docusaurus
-.docusaurus/
-
-# Serverless
-.serverless/
-
-# vitest
-.vitest

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:packages/@textlint/markdown-to-ast-with-toml/eslint.config.js
 // ## @(#) : ESLint flat config for TypeScript workspace
 //
 // @version   1.0.0
@@ -49,3 +50,24 @@ export default [
   },
 ];
 
+||||||| parent of 9c6d80d (chore(config): apply shared monorepo configs and fix tsconfig structure):packages/@textlint/markdown-to-ast-with-toml/eslint.config.js
+=======
+// eslint.config.js
+//
+// @(#) : ESLint flat config for TypeScript workspace
+//
+// @version   1.0.0
+// @since     2025-04-12
+// @author    atsushifx <atsushifx@gmail.com>
+// @license   MIT
+//
+// @description<<
+//
+//
+//<<
+
+// import form common base config
+import baseConfig from "../../../shared/configs/eslint.config.base.js";
+
+export default baseConfig;
+>>>>>>> 9c6d80d (chore(config): apply shared monorepo configs and fix tsconfig structure):packages/@textlint/textlint-plugin-markdown-with-toml/eslint.config.js

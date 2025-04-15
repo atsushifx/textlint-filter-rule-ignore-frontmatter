@@ -1,0 +1,10 @@
+# project.dic: dictionary for this project: textlint-filter-rule-ignore-fronymatter
+docusaurus
+hugo
+jspm
+mdast
+stylelintcache
+unist
+vuepress
+wscript
+zola

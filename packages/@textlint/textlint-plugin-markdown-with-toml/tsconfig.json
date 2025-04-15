@@ -1,0 +1,32 @@
+{
+	"extends": "../../../shared/configs/tsconfig.base.json",
+	// aliases
+	// directory definition
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"src/*" // for sub repository local
+			],
+			"@shared/*": [
+				"../../../shared/*"
+			]
+		},
+		"outDir": "lib"
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		".git",
+		"node_modules",
+		"lib",
+		"module"
+	],
+	// references
+	"references": [
+		{
+			"path": "../markdown-to-ast-with-toml/"
+		}
+	]
+}

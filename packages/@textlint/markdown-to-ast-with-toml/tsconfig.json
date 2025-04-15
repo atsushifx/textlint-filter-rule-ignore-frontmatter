@@ -1,12 +1,15 @@
 {
 	"extends": "../../../tsconfig.base.json",
 	"compilerOptions": {
-		"outDir": "lib"
+		"outDir": "lib",
+		"composite": true,
+		"declaration": true,
+		"declarationMap": true,
+		"tsBuildInfoFile": "./.tsbuildinfo"
 	},
 	"include": [
 		"src/**/*",
-		"types",
-		"../../../tsconfig.base.json"
+		"types/**/*"
 	],
 	"exclude": [
 		".git",
