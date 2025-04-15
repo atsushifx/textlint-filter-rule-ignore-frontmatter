@@ -1,4 +1,4 @@
-// /shared/configs/commitlint.config.base.ts
+// commitlint.config.ts
 // @(#) : commitlint configuration for this workspace
 /**
  * @version   1.0.0

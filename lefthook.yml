@@ -1,13 +1,15 @@
 ## @(#) : lefthook config
 #
 # @version 1.0.0
-# @author  Furukawa, Atsushi <atsushifx@gmail.com>
+# @author  atsushifx <atsushifx@gmail.com>
 # @date    2024-02-05
 # @license MIT
 #
 # @desc<<
 #
-# git hook configuration by lefthook
+# Configuration for Lefthook, a tool to manage and run Git hooks.
+# Ensures hooks are consistently applied across all repositories
+# for tasks like linting, testing, and formatting.
 #
 #<<
 
