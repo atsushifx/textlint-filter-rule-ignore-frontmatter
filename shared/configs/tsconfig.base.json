@@ -20,6 +20,7 @@
 		"newLine": "LF",
 		"composite": true,
 		"incremental": true,
+		"tsBuildInfoFile": ".tsbuildinfo",
 		// ✅ ライブラリ
 		"lib": [
 			"ESNext",
@@ -41,8 +42,4 @@
 			"./node_modules/@types"
 		]
 	},
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
 }

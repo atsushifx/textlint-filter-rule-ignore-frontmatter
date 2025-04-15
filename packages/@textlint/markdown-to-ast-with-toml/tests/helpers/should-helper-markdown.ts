@@ -25,7 +25,7 @@ function shouldHaveImplementInlineTxtNode(node: TxtNode, text: string, allText: 
 
   assert.strictEqual(node.raw, text);
   assert.deepStrictEqual(node.loc, {
-    start: { line: 1, column: startColumn },// Assume node is on the first line for inline tests
+    start: { line: 1, column: startColumn }, // Assume node is on the first line for inline tests
     end: { line: 1, column: startColumn + text.length },
   });
   assert.deepStrictEqual(node.range, [startColumn, startColumn + text.length]);

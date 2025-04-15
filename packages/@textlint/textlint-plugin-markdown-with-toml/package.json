@@ -1,8 +1,9 @@
 {
-  "name": "@textlint/markdown-to-ast-with-toml",
+  "name": "@textlint/textlint-plugin-markdown-with-toml",
   "version": "0.1.0",
-  "description": "Markdown to AST parser with TOML front matter support for textlint. Useful for tools like Zola and Hugo.",
-  "author": "Furukawa Atsushi <atsushifx@gmail.com>",
+  "description": " textlint plugin that parses Markdown with TOML front matter. Supports content platforms like Zola and Hugo.",
+  "author": "atsushifx <atsushifx@gmail.com>",
+  "email": "atsushifx@gmail.com",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -30,6 +31,7 @@
     "markdown-parser"
   ],
   "scripts": {
+    "prepare": "bash ../../../bin/sync_configs.sh . all",
     "build": "pnpm run build:cjs && pnpm run build:esm",
     "build:cjs": "tsup --config tsup.config.ts",
     "build:esm": "tsup --config tsup.config.module.ts",
@@ -44,28 +46,14 @@
     "test": "pnpm run test:develop && pnpm run test:ci",
     "test:ci": "pnpm exec vitest run ./tests/",
     "test:develop": "pnpm exec vitest  ./src/",
-    "test:watch": "pnpm exec vitest --watch"
+    "test:watch": "pnpm exec vitest --watch",
+    "sync:configs": "bash ../../../bash/sync_configs.sh . "
   },
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@textlint/ast-node-types": "^14.6.0",
-    "@textlint/kernel": "^14.6.0",
-    "@textlint/types": "^14.6.0",
-    "@types/debug": "^4.1.12",
-    "@types/mdast": "^4.0.4",
-    "@types/node": "^22.14.1",
-    "@types/unist": "^3.0.3",
-    "neotraverse": "^0.6.18",
-    "remark-footnotes": "^5.0.0",
-    "remark-frontmatter": "^5.0.0",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-stringify": "^11.0.0",
-    "unified": "^11.0.5"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "debug": "^4.4.0"
+    "@textlint/markdown-to-ast-with-toml": "latest"
   }
 }

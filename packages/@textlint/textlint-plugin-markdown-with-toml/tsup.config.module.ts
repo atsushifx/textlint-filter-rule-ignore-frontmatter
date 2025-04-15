@@ -16,7 +16,7 @@
 // <<
 
 import { defineConfig } from 'tsup';
-import { baseConfig } from '../../../tsup.config.base';
+import { baseConfig } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,
@@ -28,5 +28,5 @@ export default defineConfig({
     '!src/tests/**',
   ],
   tsconfig: './tsconfig.json',
-  outDir: 'lib', // for CJS
+  outDir: 'module', // for ESM
 });

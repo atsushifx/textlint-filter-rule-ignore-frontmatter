@@ -8,8 +8,15 @@ import { baseConfig } from '../../../tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,
+  entry: [
+    'src/**/*',
+    '!src/**/*.test.ts',
+    '!src/**/*.spec.ts',
+    '!src/tests/**',
+  ],
+
   format: ['esm'],
-  entry: ['src/index.ts'],
+  target: 'es2022',
   outDir: 'module',
   tsconfig: './tsconfig.json',
 });
