@@ -1,4 +1,7 @@
 packages:
-  - packages/@textlint/markdown-to-ast-with-toml
-  - packages/shared
-  - shared
+  - packages/*
+  - packages/@textlint/*
+  - shared/**
+
+ignoredBuiltDependencies:
+  - esbuild

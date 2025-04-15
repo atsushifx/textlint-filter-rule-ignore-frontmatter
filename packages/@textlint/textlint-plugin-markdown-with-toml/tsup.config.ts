@@ -1,3 +1,4 @@
+// src: tsup.config.ts
 // @(#) : tsup config for textlint plugin development
 //
 // @version   1.0.0

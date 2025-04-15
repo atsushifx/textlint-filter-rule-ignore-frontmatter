@@ -15,15 +15,27 @@
  * <<
  */
 
-const Configuration = {
-  /*
-   * Resolve and load @commitlint/config-conventional from node_modules.
-   * Referenced packages must be installed
-   */
-  extends: ['@commitlint/config-conventional'],
+import type { UserConfig } from '@commitlint/types';
 
-  // Output formatter used by commitlint CLI
-  formatter: '@commitlint/format',
+// commit lint common configs
+const baseConfig: UserConfig = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [2, 'always', [
+      'feat',
+      'fix',
+      'chore',
+      'docs',
+      'test',
+      'refactor',
+      'perf',
+      'ci',
+      'merge',
+    ]],
+    'subject-case': [2, 'never', ['start-case', 'pascal-case']], // etc
+    'header-max-length': [2, 'always', 72],
+  },
 };
 
-export default Configuration;
+// export
+export default baseConfig;

@@ -10,7 +10,8 @@
 				"../../../shared/*"
 			]
 		},
-		"outDir": "lib"
+		"outDir": "lib",
+		"tsBuildInfoFile": ".tsbuildinfo",
 	},
 	"include": [
 		"src/**/*",

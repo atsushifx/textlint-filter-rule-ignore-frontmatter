@@ -31,7 +31,6 @@
     "markdown-parser"
   ],
   "scripts": {
-    "prepare": "bash ../../../bin/sync_configs.sh . all",
     "build": "pnpm run build:cjs && pnpm run build:esm",
     "build:cjs": "tsup --config tsup.config.ts",
     "build:esm": "tsup --config tsup.config.module.ts",
@@ -47,7 +46,7 @@
     "test:ci": "pnpm exec vitest run ./tests/",
     "test:develop": "pnpm exec vitest run ./src/",
     "test:watch": "pnpm exec vitest --watch",
-    "sync:configs": "bash ../../../bash/sync_configs.sh . "
+    "sync:configs": "bash ../../../bin/sync_configs.sh . "
   },
   "publishConfig": {
     "access": "public"
@@ -70,5 +69,17 @@
   },
   "dependencies": {
     "debug": "^4.4.0"
-  }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter",
+    "directory": "packages/@textlint/textlint-plugin-markdown-with-toml"
+  },
+  "bugs": {
+    "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter/issues"
+  },
+  "homepage": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter#readme"
 }
