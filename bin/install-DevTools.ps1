@@ -6,7 +6,7 @@
     This script installs linters & dev tools using pnpm and scoop
 
   .NOTES
-    @Author   Furukawa, Atsushi <atsushifx@aglabo.com>
+    @Author   atsushifx <atsushifx@gmail.com>
     @License  MIT License https://opensource.org/licenses/MIT
 
     @Since    2025-02-07

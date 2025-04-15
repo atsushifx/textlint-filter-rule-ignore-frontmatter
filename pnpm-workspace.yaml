@@ -1,4 +1,4 @@
 packages:
-  - packages/@textlint/*
+  - packages/@textlint/markdown-to-ast-with-toml
   - packages/shared
   - shared

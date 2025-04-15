@@ -1,3 +1,4 @@
+// vitest.config.base.ts
 // @(#) : vitest config for textlint filter rule plugin
 //
 // @version   1.0.0
@@ -13,8 +14,23 @@
 // <<
 
 import { defineConfig } from 'vitest/config';
-import baseConfig from '../../../shared/configs/vitest.config.base';
 
 export default defineConfig({
-  ...baseConfig,
+  test: {
+    globals: true,
+    environment: 'node',
+    include: [
+      'src/**/*.test.ts',
+      'src/**/*.spec.ts',
+      'tests/**/*.test.ts',
+      'tests/**/*.spec.ts',
+    ],
+    exclude: [
+      'node_modules/**',
+      // 出力ディレクトリ
+      'dist/**',
+      'lib/**',
+      'module/**',
+    ],
+  },
 });

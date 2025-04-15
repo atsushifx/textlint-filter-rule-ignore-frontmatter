@@ -2,7 +2,8 @@
   "name": "@textlint/markdown-to-ast-with-toml",
   "version": "0.1.0",
   "description": "Markdown to AST parser with TOML front matter support for textlint. Useful for tools like Zola and Hugo.",
-  "author": "Furukawa Atsushi <atsushifx@gmail.com>",
+  "author": "atsushifx",
+  "email": "atsushifx@gmail.com",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -30,6 +31,7 @@
     "markdown-parser"
   ],
   "scripts": {
+    "prepare": "bash ../../../bin/sync_configs.sh . all",
     "build": "pnpm run build:cjs && pnpm run build:esm",
     "build:cjs": "tsup --config tsup.config.ts",
     "build:esm": "tsup --config tsup.config.module.ts",
@@ -43,8 +45,9 @@
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm run test:develop && pnpm run test:ci",
     "test:ci": "pnpm exec vitest run ./tests/",
-    "test:develop": "pnpm exec vitest  ./src/",
-    "test:watch": "pnpm exec vitest --watch"
+    "test:develop": "pnpm exec vitest run ./src/",
+    "test:watch": "pnpm exec vitest --watch",
+    "sync:configs": "bash ../../../bash/sync_configs.sh . "
   },
   "publishConfig": {
     "access": "public"

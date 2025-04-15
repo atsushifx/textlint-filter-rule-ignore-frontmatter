@@ -16,7 +16,7 @@
 // <<
 
 import { defineConfig } from 'tsup';
-import { baseConfig } from '../../../tsup.config.base';
+import { baseConfig } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,

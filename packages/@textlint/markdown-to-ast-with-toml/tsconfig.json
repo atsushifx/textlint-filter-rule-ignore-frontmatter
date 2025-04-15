@@ -1,11 +1,16 @@
 {
-	"extends": "../../../tsconfig.base.json",
+	"extends": "../../../shared/configs/tsconfig.base.json",
 	"compilerOptions": {
-		"outDir": "lib",
-		"composite": true,
-		"declaration": true,
-		"declarationMap": true,
-		"tsBuildInfoFile": "./.tsbuildinfo"
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"src/*" // for sub repository local
+			],
+			"@shared/*": [
+				"../../../shared/*"
+			]
+		},
+		"outDir": "lib"
 	},
 	"include": [
 		"src/**/*",

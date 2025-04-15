@@ -1,13 +1,14 @@
 ## @(#) : gitignore for textlint filter (skip-frontmatter)
 #
 # @version	1.0.0
-# @author   Furukawa, Atsushi <atsushifx@aglabo.com>
+# @author   atsushifx <atsushifx@gmail.com>
 # @since    2025-04-11
 #
 # @description<<
 #
 # Git ignore rules for textlint plugin development.
 # Includes common Node.js patterns and workspace-specific overrides.
+# Ensures unnecessary files and directories are ignored during development and build processes.
 #
 #<<
 
