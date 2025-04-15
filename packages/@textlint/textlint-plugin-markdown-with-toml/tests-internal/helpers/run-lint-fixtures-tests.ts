@@ -24,7 +24,13 @@ async function runLintTestCase(
 
   const caseAbsoluteDir = path.join('tests', caseDir, caseName);
 
+  const kernel = options.kernel ?? defaultKernel;
+
+  const caseAbsoluteDir = path.join('tests', caseDir, caseName);
+
   const inputFile = fs
+    .readdirSync(caseAbsoluteDir)
+    .find((f) => f.startsWith('input.') && fs.statSync(path.join(caseAbsoluteDir, f)).isFile());
     .readdirSync(caseAbsoluteDir)
     .find((f) => f.startsWith('input.') && fs.statSync(path.join(caseAbsoluteDir, f)).isFile());
 
@@ -34,11 +40,16 @@ async function runLintTestCase(
   }
 
   const inputPath = path.join(caseAbsoluteDir, inputFile);
+  const inputPath = path.join(caseAbsoluteDir, inputFile);
   const ext = path.extname(inputPath);
   const pluginOptions = options.pluginOptionsByExt?.[ext] ?? undefined;
   const outputPath = path.join(caseAbsoluteDir, 'output.json');
 
   const text = fs.readFileSync(inputPath, 'utf8');
+  const expected = JSON.parse(fs.readFileSync(outputPath, 'utf8')) as {
+    line: number;
+    message: string;
+  }[];
   const expected = JSON.parse(fs.readFileSync(outputPath, 'utf8')) as {
     line: number;
     message: string;
@@ -51,6 +62,7 @@ async function runLintTestCase(
       {
         pluginId: 'markdown',
         plugin: options.plugin,
+        options: pluginOptions,
         options: pluginOptions,
       },
     ],
@@ -86,18 +98,46 @@ function describeFixtureCase(
     });
   });
 }
+  const actualMessages = result.messages;
 
-/**
- * カテゴリ単体実行
- */
-function runLintFixtureTests(
-  categoryPath: string,
+  // 行番号 + エラーメッセージ
+  expect(actualMessages.length).toBe(expected.length);
+  for (let i = 0; i < expected.length; i++) {
+    const actual = actualMessages[i];
+    const expectedItem = expected[i];
+
+    expect(actual.line).toBe(expectedItem.line);
+    expect(actual.message).toContain(expectedItem.message);
+  }
+}
+
+function describeFixtureCase(
+  caseDir: string,
+  caseName: string,
   options: TextlintLintTestOptions,
   label?: string,
 ) {
-  const rootDir = path.join('tests', categoryPath);
+  const categoryName = path.basename(caseDir);
+  const suiteTitle = `suite: ${categoryName} / case: ${caseName}`;
+  const testLabel = label ?? `${caseDir}/${caseName}`;
 
-  console.d;
+  describe(suiteTitle, () => {
+    it(testLabel, async () => {
+      await runLintTestCase(caseDir, caseName, options);
+    });
+  });
+}
+
+/**
+ * カテゴリ単体実行
+ * カテゴリ単体実行
+ */
+function runLintFixtureTests(
+  relativeCategoryPath: string,
+  options: TextlintLintTestOptions,
+  label?: string,
+) {
+  const categoryPath = path.join('tests', relativeCategoryPath);
 
   if (!fs.existsSync(categoryPath)) {
     throw new Error(`Fixture directory not found: ${categoryPath}`);
@@ -107,6 +147,7 @@ function runLintFixtureTests(
     .readdirSync(categoryPath)
     .filter((name) => fs.statSync(path.join(categoryPath, name)).isDirectory());
 
+  describe(`Lint Fixtures from ${label ?? relativeCategoryPath}`, () => {
   describe(`Lint Fixtures from ${label ?? relativeCategoryPath}`, () => {
     for (const caseName of cases) {
       if (caseName.startsWith('#')) continue;
@@ -138,8 +179,11 @@ function runCategorizedLintFixtureTests(
   for (const category of categories) {
     const categoryPath = path.join(rootRelativeDir, category);
     runLintFixtureTests(categoryPath, options, `${rootRelativeDir}/${category}`);
+    const categoryPath = path.join(rootRelativeDir, category);
+    runLintFixtureTests(categoryPath, options, `${rootRelativeDir}/${category}`);
   }
 }
 
 // export
+export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests, runLintTestCase };
 export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests, runLintTestCase };

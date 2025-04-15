@@ -16,8 +16,7 @@
 		"declaration": true,
 		"declarationMap": true,
 		"types": [
-			"node",
-			"./lib/index.d.cts"
+			"node"
 		],
 		// ✅ 出力・ソースマップ
 		"sourceMap": true,

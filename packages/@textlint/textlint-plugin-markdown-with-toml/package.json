@@ -46,7 +46,7 @@
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm run test:develop && pnpm run test:ci",
     "test:ci": "pnpm exec vitest run ./tests/",
-    "test:develop": "pnpm exec vitest  ./src/",
+    "test:develop": "pnpm exec vitest run ./src/",
     "test:watch": "pnpm exec vitest --watch",
     "sync:configs": "bash ../../../bin/sync_configs.sh . "
   },
@@ -58,7 +58,8 @@
     "@textlint/kernel": "^14.6.0",
     "@textlint/markdown-to-ast": "^14.6.0",
     "@textlint/types": "^14.6.0",
-    "@types/node": "^22.14.1"
+    "@types/node": "^22.14.1",
+    "textlint-rule-no-todo": "^2.0.1"
   },
   "dependencies": {
     "@textlint/markdown-to-ast-with-toml": "workspace:*"

@@ -24,11 +24,8 @@
 		//
 		"tsBuildInfoFile": ".tsbuildinfo",
 		// types
-		"typeRoots": [
-			"./types",
-			"node_modules/@types"
-		],
 	},
+	// files
 	"include": [
 		"src/**/*",
 		"tests/**/*",

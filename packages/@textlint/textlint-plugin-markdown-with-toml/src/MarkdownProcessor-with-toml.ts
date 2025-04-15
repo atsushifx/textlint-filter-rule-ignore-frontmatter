@@ -28,7 +28,7 @@ class MarkdownProcessorWithTOML implements TextlintPluginProcessor {
 
   // methods
   availableExtensions(): string[] {
-    return ['.md'];
+    return ['.md', '.markdown', '.mdown', '.mkdn', '.mkd', '.mdwn', '.mkdown', '.ron'].concat(this.extensions);
   }
   processor(): {
     preProcess: (text: string, filePath?: string) => TextlintPluginPreProcessResult;

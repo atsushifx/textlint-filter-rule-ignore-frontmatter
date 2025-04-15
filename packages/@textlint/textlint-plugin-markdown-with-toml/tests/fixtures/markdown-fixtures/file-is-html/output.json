@@ -1,11 +1,3 @@
-{
-  "messages": [
-    {
-      "message": "Found TODO",
-      "line": 4,
-      "column": 3,
-      "severity": 2,
-      "ruleId": "no-todo"
-    }
-  ]
-}
+[
+  { "line": 5, "message": "Found TODO" }
+]

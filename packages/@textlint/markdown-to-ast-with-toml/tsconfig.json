@@ -14,8 +14,8 @@
 		"tsBuildInfoFile": ".tsbuildinfo",
 	},
 	"include": [
-		"src/**/*.{ts,tsx}",
-		"types/**/*.{ts,tsx}"
+		"src/**/*",
+		"types/**/*"
 	],
 	"exclude": [
 		".git",
