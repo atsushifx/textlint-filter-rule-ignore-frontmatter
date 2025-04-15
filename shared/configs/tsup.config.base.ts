@@ -1,25 +1,36 @@
-// shared/configs/tsup.config.base.ts
-//
-// @(#) : tsup config for textlint plugin development
-//
-import type { Options } from "tsup";
-import { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
+// @(#) : tsup config
+/**
+ * @version   1.0.0
+ * @author    atsushifx <atsushifx@gmail.com>
+ * @since     2025-04-12
+ * @license   MIT
+ *
+ * @description<<
+ *
+ * Base configuration for tsup bundler, used for building the project with both ESM and CommonJS outputs.
+ * Includes setup for sourcemaps, declaration files, and exclusion of test files from bundling.
+ *
+ * <<
+ */
+
+import { dirname, resolve } from 'path';
+import type { Options } from 'tsup';
+import { fileURLToPath } from 'url';
 
 // ✅ __dirname for ESM
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const baseConfig: Options = {
-  format: ["esm"],
-  target: "es2022",
-  dts: false,           // Enable in sub-repos only if needed
+  format: ['esm'],
+  target: 'es2022',
+  dts: false, // Enable in sub-repos only if needed
   sourcemap: true,
   clean: true,
   minify: false,
   splitting: false,
   shims: false,
-  outDir: "dist",
+  outDir: 'dist',
 
   // ⬇ Sub-repo will define this
-  entry: []
+  entry: [],
 };
