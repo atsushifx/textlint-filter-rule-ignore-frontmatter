@@ -15,12 +15,16 @@
 		"skipLibCheck": true,
 		"declaration": true,
 		"declarationMap": true,
+		"types": [
+			"node"
+		],
 		// ✅ 出力・ソースマップ
 		"sourceMap": true,
 		"newLine": "LF",
 		"composite": true,
 		"incremental": true,
-		"tsBuildInfoFile": ".tsbuildinfo",
+		// 個別に設定すべき
+		// "tsBuildInfoFile": ".tsbuildinfo",
 		// ✅ ライブラリ
 		"lib": [
 			"ESNext",
@@ -28,18 +32,11 @@
 		],
 		// ✅ エイリアス設定（←追加！）
 		"baseUrl": ".",
-		"types": [
-			"node"
-		],
 		"paths": {
 			"@/*": [
 				"./*"
 			]
 		},
 		// ✅ 型補完
-		"typeRoots": [
-			"./types",
-			"./node_modules/@types"
-		]
 	},
 }

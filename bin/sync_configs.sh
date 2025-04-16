@@ -69,7 +69,7 @@ sync_config_type() {
       copy_config_files config_files "$target_dir"
       ;;
     secretlint)
-      config_files=("secretlint.base.yml:.secretlintrc.yml")
+      config_files=("secretlintrc.base.yml:.secretlintrc.yml")
       copy_config_files config_files "$target_dir"
       ;;
     *)

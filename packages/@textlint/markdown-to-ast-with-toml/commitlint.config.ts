@@ -1,3 +1,4 @@
+// src: commitlint.config.base.ts
 // @(#) : commitlint configuration for this workspace
 /**
  * @version   1.0.0
@@ -14,15 +15,18 @@
  * <<
  */
 
-const Configuration = {
-  /*
-   * Resolve and load @commitlint/config-conventional from node_modules.
-   * Referenced packages must be installed
-   */
-  extends: ['@commitlint/config-conventional'],
+// type
+import type { UserConfig } from '@commitlint/types';
 
-  // Output formatter used by commitlint CLI
-  formatter: '@commitlint/format',
+// base Config
+import baseConfig from '../../../shared/configs/commitlint.config.base';
+
+// config
+const config: UserConfig = {
+  ...baseConfig,
+  rules: {
+    ...baseConfig.rules,
+  },
 };
 
-export default Configuration;
+export default config;

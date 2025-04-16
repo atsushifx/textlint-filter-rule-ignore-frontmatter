@@ -5,17 +5,26 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
+			// ローカルのプラグイン、ルール
 			"@/*": [
 				"src/*" // for sub repository local
 			],
+			// Monorepo 共有用
 			"@shared/*": [
 				"../../../shared/*"
+			],
+			// テスト・補助コード : UnitTest用Helper、型
+			"@tests/*": [
+				"tests-internal/*"
 			]
 		},
-		"outDir": "lib"
+		"outDir": "lib",
+		//
+		"tsBuildInfoFile": ".tsbuildinfo",
 	},
 	"include": [
-		"src/**/*"
+		"src/**/*",
+		"tests-internal/**/*"
 	],
 	"exclude": [
 		".git",
@@ -24,9 +33,5 @@
 		"module"
 	],
 	// references
-	"references": [
-		{
-			"path": "../markdown-to-ast-with-toml/"
-		}
-	]
+	"references": []
 }
