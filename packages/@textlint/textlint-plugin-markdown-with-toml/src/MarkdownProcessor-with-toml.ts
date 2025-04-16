@@ -12,7 +12,6 @@ import type {
   TextlintPluginProcessor,
 } from '@textlint/types';
 
-
 // parser
 import { parse } from '@textlint/markdown-to-ast-with-toml';
 

@@ -11,8 +11,10 @@
   "module": "./module/index.js",
   "types": "./lib/index.d.ts",
   "exports": {
-    "import": "./module/index.js",
-    "require": "./lib/index.js"
+    ".": {
+      "import": "./module/index.js",
+      "require": "./lib/index.js"
+    }
   },
   "files": [
     "lib",
@@ -54,7 +56,12 @@
   "devDependencies": {
     "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
+    "@textlint/markdown-to-ast": "^14.6.0",
+    "@textlint/types": "^14.6.0",
     "@types/node": "^22.14.1"
+  },
+  "dependencies": {
+    "@textlint/markdown-to-ast-with-toml": "workspace:*"
   },
   "engines": {
     "node": ">=20"

@@ -91,13 +91,13 @@ function describeFixtureCase(
  * カテゴリ単体実行
  */
 function runLintFixtureTests(
-  categoryPath: string ,
+  categoryPath: string,
   options: TextlintLintTestOptions,
   label?: string,
 ) {
   const rootDir = path.join('tests', categoryPath);
 
-    console.d
+  console.d;
 
   if (!fs.existsSync(categoryPath)) {
     throw new Error(`Fixture directory not found: ${categoryPath}`);

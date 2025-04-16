@@ -1,9 +1,12 @@
 {
 	"extends": "../../../shared/configs/tsconfig.base.json",
-	// aliases
 	// directory definition
 	"compilerOptions": {
-		"baseUrl": ".",
+		// in/out dir
+		"rootDir": ".",
+		"outDir": "lib",
+		// aliases
+		"baseUrl": "./",
 		"paths": {
 			// ローカルのプラグイン、ルール
 			"@/*": [
@@ -18,7 +21,6 @@
 				"tests-internal/*"
 			]
 		},
-		"outDir": "lib",
 		//
 		"tsBuildInfoFile": ".tsbuildinfo",
 		// types
@@ -29,6 +31,7 @@
 	},
 	"include": [
 		"src/**/*",
+		"tests/**/*",
 		"tests-internal/**/*"
 	],
 	"exclude": [

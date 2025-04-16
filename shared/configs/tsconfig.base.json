@@ -26,6 +26,8 @@
 		"incremental": true,
 		// 個別に設定すべき
 		// "tsBuildInfoFile": ".tsbuildinfo",
+		// input/output Dir
+		"outDir": "./dist",
 		// ✅ ライブラリ
 		"lib": [
 			"ESNext",

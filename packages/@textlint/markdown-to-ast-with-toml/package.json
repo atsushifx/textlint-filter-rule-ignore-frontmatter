@@ -11,8 +11,10 @@
   "module": "./module/index.js",
   "types": "./lib/index.d.ts",
   "exports": {
-    "import": "./module/index.js",
-    "require": "./lib/index.js"
+    ".": {
+      "import": "./module/index.js",
+      "require": "./lib/index.js"
+    }
   },
   "files": [
     "lib",

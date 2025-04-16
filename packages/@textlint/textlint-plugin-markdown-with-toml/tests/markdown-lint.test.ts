@@ -35,8 +35,9 @@ function testRunner() {
 
   // Run fixture tests
   const caseDir = 'fixtures/markdown-fixtures';
+  const caseName = 'file-is-html';
 
-  runLintFixtureTests(caseDir, options);
+  describeFixtureCase(caseDir, caseName, options, 'check to do in markdown file');
 }
 
 // Run Tests
