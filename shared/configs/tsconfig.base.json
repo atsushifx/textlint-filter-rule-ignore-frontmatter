@@ -16,12 +16,13 @@
 		"declaration": true,
 		"declarationMap": true,
 		"types": [
-			"node"
+			"node",
+			"./lib/index.d.cts"
 		],
 		// ✅ 出力・ソースマップ
 		"sourceMap": true,
 		"newLine": "LF",
-		"composite": true,
+		"composite": false,
 		"incremental": true,
 		// 個別に設定すべき
 		// "tsBuildInfoFile": ".tsbuildinfo",

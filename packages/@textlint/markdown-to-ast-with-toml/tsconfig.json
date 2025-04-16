@@ -14,14 +14,15 @@
 		"tsBuildInfoFile": ".tsbuildinfo",
 	},
 	"include": [
-		"src/**/*",
-		"types/**/*"
+		"src/**/*.{ts,tsx}",
+		"types/**/*.{ts,tsx}"
 	],
 	"exclude": [
 		".git",
 		"node_modules",
 		"lib",
-		"module"
+		"module",
+		"tests"
 	],
 	"references": []
 }

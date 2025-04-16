@@ -52,6 +52,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
     "@types/node": "^22.14.1"
   },

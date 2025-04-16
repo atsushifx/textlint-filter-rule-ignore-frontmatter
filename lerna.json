@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "packages": [
+    "packages/@textlint/*",
+    "packages/**"
+  ],
+  "version": "independent",
+  "npmClient": "pnpm"
+}
