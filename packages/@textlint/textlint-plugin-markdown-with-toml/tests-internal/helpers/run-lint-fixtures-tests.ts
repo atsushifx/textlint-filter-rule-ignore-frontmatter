@@ -102,12 +102,16 @@ function runLintFixtureTests(
 
   const cases = fs
     .readdirSync(rootDir)
-    .filter((name) => fs.statSync(path.join(rootDir, name)).isDirectory());
+    .filter((name) => {
+      const fullPath = path.join(rootDir, name);
+      return (
+        fs.statSync(fullPath).isDirectory()
+        && !name.startsWith('#') // '#' で始まるディレクトリはコメントアウトとする
+      );
+    });
 
   describe(`Lint Fixtures from ${label ?? categoryPath}`, () => {
     for (const caseName of cases) {
-      if (caseName.startsWith('#')) continue;
-
       it(`should lint correctly: ${caseName}`, async () => {
         await runLintTestCase(categoryPath, caseName, options);
       });
@@ -119,23 +123,26 @@ function runLintFixtureTests(
  * fixtures ディレクトリ全体
  */
 function runCategorizedLintFixtureTests(
-  rootRelativeDir: string,
+  fixturesDir: string,
   options: TextlintLintTestOptions,
+  label?: string,
 ) {
-  const rootDir = path.join('tests', rootRelativeDir);
+  const rootDir = path.join('tests', fixturesDir);
 
   const categories = fs
     .readdirSync(rootDir)
     .filter((name) => {
       const fullPath = path.join(rootDir, name);
-      return fs.statSync(fullPath).isDirectory() && !name.startsWith('@');
+      return fs.statSync(fullPath).isDirectory()
+        && !name.startsWith('@') // '@' 始まるディレクトリは、fixtures から除外
+        && !name.startsWith('#'); // '#' で始まるディレクトリはコメントアウトとする
     });
 
   for (const category of categories) {
-    const categoryPath = path.join(rootRelativeDir, category);
-    runLintFixtureTests(categoryPath, options, `${rootRelativeDir}/${category}`);
+    const categoryPath = path.join(fixturesDir, category);
+    runLintFixtureTests(categoryPath, options, label);
   }
 }
 
 // export
-export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests, runLintTestCase };
+export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests };

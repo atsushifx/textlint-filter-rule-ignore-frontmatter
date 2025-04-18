@@ -7,7 +7,7 @@
 import type { TextlintLintTestOptions } from '@tests/types/textlint-fixture.types';
 
 // Test Helper
-import { describeFixtureCase, runLintFixtureTests, runLintTestCase } from '@tests/helpers/run-lint-fixtures-tests';
+import { runCategorizedLintFixtureTests } from '@tests/helpers/run-lint-fixtures-tests';
 
 // parser
 import { MarkdownProcessorWithTOML } from '@/index';
@@ -34,10 +34,9 @@ function testRunner() {
   };
 
   // Run fixture tests
-  const caseDir = 'fixtures/markdown-fixtures';
-  const caseName = 'file-is-html';
+  const caseDir = 'fixtures';
 
-  describeFixtureCase(caseDir, caseName, options, 'check to do in markdown file');
+  runCategorizedLintFixtureTests(caseDir, options);
 }
 
 // Run Tests
