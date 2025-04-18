@@ -24,6 +24,9 @@ function testRunner() {
     plugin,
     pluginOptionsByExt: {
       '.md': {}, // TOML frontmatterのオプションがあればここに指定
+      '.custom': { // テスト用拡張子 '.custom'用
+        extensions: ['.custom'], // ここがキモ！
+      },
     },
     rules: [
       {
