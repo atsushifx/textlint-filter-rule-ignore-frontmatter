@@ -9,7 +9,7 @@ import { SyntaxMap } from './mapping/markdown-syntax-map';
 
 // parser
 import { parseMarkdownWithTOML } from './parse-markdown-with-toml';
-
+// debug
 const debug = debug0('@textlint/markdown-to-ast');
 
 export { ASTNodeTypes as Syntax };

@@ -21,7 +21,8 @@
 		".git",
 		"node_modules",
 		"lib",
-		"module"
+		"module",
+		"tests"
 	],
 	"references": []
 }

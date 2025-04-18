@@ -3,6 +3,9 @@ docusaurus
 hugo
 jspm
 mdast
+mdwn
+mkdn
+mkdown
 stylelintcache
 unist
 vuepress

@@ -23,7 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export const baseConfig: Options = {
   format: ['esm'],
   target: 'es2022',
-  dts: false, // Enable in sub-repos only if needed
+  dts: false,
   sourcemap: true,
   clean: true,
   minify: false,

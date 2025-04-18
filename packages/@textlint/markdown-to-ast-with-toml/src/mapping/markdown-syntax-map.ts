@@ -8,7 +8,6 @@ export const SyntaxMap = {
   blockquote: ASTNodeTypes.BlockQuote,
   listItem: ASTNodeTypes.ListItem,
   list: ASTNodeTypes.List,
-  Bullet: 'Bullet', // no need?
   heading: ASTNodeTypes.Header,
   code: ASTNodeTypes.CodeBlock,
   HtmlBlock: ASTNodeTypes.HtmlBlock,
@@ -37,5 +36,4 @@ export const SyntaxMap = {
   /**
    * @deprecated
    */
-  ReferenceDef: ASTNodeTypes.ReferenceDef,
 } as const;

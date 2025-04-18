@@ -11,8 +11,10 @@
   "module": "./module/index.js",
   "types": "./lib/index.d.ts",
   "exports": {
-    "import": "./module/index.js",
-    "require": "./lib/index.js"
+    ".": {
+      "import": "./module/index.js",
+      "require": "./lib/index.js"
+    }
   },
   "files": [
     "lib",
@@ -44,7 +46,7 @@
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm run test:develop && pnpm run test:ci",
     "test:ci": "pnpm exec vitest run ./tests/",
-    "test:develop": "pnpm exec vitest  ./src/",
+    "test:develop": "pnpm exec vitest run ./src/",
     "test:watch": "pnpm exec vitest --watch",
     "sync:configs": "bash ../../../bin/sync_configs.sh . "
   },
@@ -52,8 +54,15 @@
     "access": "public"
   },
   "devDependencies": {
+    "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
-    "@types/node": "^22.14.1"
+    "@textlint/markdown-to-ast": "^14.6.0",
+    "@textlint/types": "^14.6.0",
+    "@types/node": "^22.14.1",
+    "textlint-rule-no-todo": "^2.0.1"
+  },
+  "dependencies": {
+    "@textlint/markdown-to-ast-with-toml": "workspace:*"
   },
   "engines": {
     "node": ">=20"

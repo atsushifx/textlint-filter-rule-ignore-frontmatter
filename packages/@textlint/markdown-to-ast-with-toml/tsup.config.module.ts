@@ -20,6 +20,7 @@ import { baseConfig } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,
+  format: ['esm'],
   entry: [
     'src/**/*',
     // exclude tests
