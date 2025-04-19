@@ -4,4 +4,5 @@
 // Utility entry point for E2E textlint testing support
 
 export { E2E } from './e2e';
-export { lintText } from './e2e-linttext-helper';
+export { lintFile } from './utils/e2e-lintfile-helper';
+export { lintText } from './utils/e2e-linttext-helper';

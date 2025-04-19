@@ -13,10 +13,11 @@
 // <<
 
 // ──────────── imports
-import { lintText } from './e2e-linttext-helper';
+import { lintFile } from './utils/e2e-lintfile-helper';
+import { lintText } from './utils/e2e-linttext-helper';
 
 export const E2E = {
   lintText,
-  // lintFixture,
+  lintFile,
   // lintAst,
 };

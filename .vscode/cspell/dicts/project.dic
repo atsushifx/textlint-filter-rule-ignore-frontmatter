@@ -3,6 +3,7 @@ docusaurus
 etest
 hugo
 jspm
+lintfile
 linttext
 mdast
 mdwn
