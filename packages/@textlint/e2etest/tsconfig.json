@@ -1,4 +1,5 @@
 {
+  "@(#)": "tsconfig.json: for @textlint/e2etest",
   "extends": "../../../shared/configs/tsconfig.base.json",
   // directory definition
   "compilerOptions": {
@@ -10,25 +11,20 @@
     "paths": {
       // ローカルのプラグイン、ルール
       "@/*": [
-        "src/*" // for sub repository local
+        "src/*"
       ],
       // Monorepo 共有用
       "@shared/*": [
         "../../../shared/*"
-      ],
-      "@textlinttest/*": [
-        "../../../textlinttest/*"
       ]
     },
-    //
-    "tsBuildInfoFile": ".tsbuildinfo",
-    // types
+    // incremental build info
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
   // files
   "include": [
     "src/**/*",
-    "tests/**/*",
-    "tests-internal/**/*"
+    "tests/**/*"
   ],
   "exclude": [
     ".git",

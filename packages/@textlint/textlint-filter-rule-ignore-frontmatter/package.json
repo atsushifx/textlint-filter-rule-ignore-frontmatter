@@ -1,5 +1,5 @@
 {
-  "@(#)": "textlint filter rule plugin (skip frontmatter, for Zola/Hugo)",
+  "@(#)": "textlint filter rule plugin (ignore frontmatter, for Zola/Hugo)",
   "name": "textlint-filter-rule-skip-frontmatter",
   "version": "0.1.0",
   "description": "A textlint filter rule to skip YAML/TOML front matter. Useful for Zola or Hugo.",
@@ -26,7 +26,8 @@
     "lint:fix": "pnpm exec eslint \"src/**/*.{ts,tsx}\" --fix",
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm exec vitest run",
-    "test:watch": "pnpm exec vitest"
+    "test:watch": "pnpm exec vitest",
+    "sync:configs": "bash ../../../bin/sync_configs.sh . "
   },
   "files": [
     "dist",

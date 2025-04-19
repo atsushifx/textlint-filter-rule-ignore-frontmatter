@@ -1,9 +1,9 @@
 {
-  "name": "@textlint/textlint-plugin-markdown-with-toml",
+  "name": "@textlint/e2etest",
+  "private": true,
   "version": "0.1.0",
-  "description": " textlint plugin that parses Markdown with TOML front matter. Supports content platforms like Zola and Hugo.",
+  "description": "Fixture-based E2E test helpers for textlint plugins and rules.",
   "author": "atsushifx <atsushifx@gmail.com>",
-  "email": "atsushifx@gmail.com",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -20,17 +20,16 @@
     "lib",
     "module",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "src"
   ],
   "keywords": [
     "textlint",
-    "markdown",
-    "parser",
-    "frontmatter",
-    "toml",
-    "zola",
-    "hugo",
-    "markdown-parser"
+    "test",
+    "e2e",
+    "fixture",
+    "plugin-testing",
+    "rule-testing"
   ],
   "scripts": {
     "build": "pnpm run build:cjs && pnpm run build:esm",
@@ -70,7 +69,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter",
-    "directory": "packages/@textlint/textlint-plugin-markdown-with-toml"
+    "directory": "packages/@textlint/e2etest"
   },
   "bugs": {
     "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter/issues"
