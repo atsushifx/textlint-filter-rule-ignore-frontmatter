@@ -1,12 +1,16 @@
 # project.dic: dictionary for this project: textlint-filter-rule-ignore-fronymatter
 docusaurus
+etest
 hugo
 jspm
+lintfile
+linttext
 mdast
 mdwn
 mkdn
 mkdown
 stylelintcache
+textlinttest
 unist
 vuepress
 wscript

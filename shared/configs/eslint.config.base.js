@@ -18,6 +18,8 @@
 import js from '@eslint/js'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsparser from '@typescript-eslint/parser'
+//
+import importPlugin from 'eslint-plugin-import';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
@@ -41,11 +43,22 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
+      "import": importPlugin
     },
     rules: {
       ...tseslint.configs.recommended.rules,
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      "import/no-unresolved": "error",
+      "import/order": ["warn", { "newlines-between": "always" }],
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: ['./tsconfig.json'], // ワークスペース内のtsconfigを指す
+        }
+      }
     },
   },
-]
+];
+

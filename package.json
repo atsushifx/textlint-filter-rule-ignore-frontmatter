@@ -31,6 +31,8 @@
     "@typescript-eslint/parser": "^8.29.1",
     "cspell": "^8.18.1",
     "eslint": "^9.24.0",
+    "eslint-import-resolver-typescript": "^4.3.2",
+    "eslint-plugin-import": "^2.31.0",
     "lerna": "^8.2.2",
     "rimraf": "^6.0.1",
     "secretlint": "^9.3.0",

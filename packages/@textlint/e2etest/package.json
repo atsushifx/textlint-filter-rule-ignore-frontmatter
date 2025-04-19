@@ -1,9 +1,9 @@
 {
-  "name": "@textlint/e2etest",
-  "private": true,
+  "name": "e2etest",
   "version": "0.1.0",
-  "description": "Fixture-based E2E test helpers for textlint plugins and rules.",
+  "description": "",
   "author": "atsushifx <atsushifx@gmail.com>",
+  "email": "atsushifx@gmail.com",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -20,16 +20,17 @@
     "lib",
     "module",
     "README.md",
-    "LICENSE",
-    "src"
+    "LICENSE"
   ],
   "keywords": [
     "textlint",
-    "test",
-    "e2e",
-    "fixture",
-    "plugin-testing",
-    "rule-testing"
+    "markdown",
+    "parser",
+    "frontmatter",
+    "toml",
+    "zola",
+    "hugo",
+    "markdown-parser"
   ],
   "scripts": {
     "build": "pnpm run build:cjs && pnpm run build:esm",
@@ -47,21 +48,14 @@
     "test:ci": "pnpm exec vitest run ./tests/",
     "test:develop": "pnpm exec vitest run ./src/",
     "test:watch": "pnpm exec vitest --watch",
-    "sync:configs": "bash ../../../bin/sync_configs.sh . "
+    "sync:configs": "bash ../../../scripts/sync_configs.sh . "
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
-    "@textlint/markdown-to-ast": "^14.6.0",
-    "@textlint/types": "^14.6.0",
-    "@types/node": "^22.14.1",
-    "textlint-rule-no-todo": "^2.0.1"
-  },
-  "dependencies": {
-    "@textlint/markdown-to-ast-with-toml": "workspace:*"
+    "@textlint/types": "^14.6.0"
   },
   "engines": {
     "node": ">=20"
