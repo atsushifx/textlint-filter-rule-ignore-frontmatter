@@ -5,35 +5,51 @@
 
 // types
 import type { TextlintKernel } from '@textlint/kernel';
-
-type TextlintRuleEntry = {
+import type { TextlintPluginProcessor, TextlintRuleModule } from '@textlint/types';
+/**
+ * Textlint テストで使用されるルールエントリ
+ */
+type TextlintTestRuleEntry = {
   ruleId: string;
-  rule: any;
+  rule: TextlintRuleModule;
 };
 
-type TextlintPluginOptionsByExt = Record<string, any>;
+/**
+ * Processor を含む Textlint プラグイン型
+ */
+type TextlintTestPlugin = {
+  Processor: TextlintPluginProcessor;
+  availableExtensions?: () => string[];
+};
 
-type TextlintLintTestOptions = {
-  /**
-   * 使用する Textlint ルール一覧
-   */
-  rules: TextlintRuleEntry[];
+/**
+ * 拡張子ごとのプラグインオプション
+ */
+type TextlintTestPluginOptionsByExt = Record<string, any>;
 
-  /**
-   * 使用するプラグイン（Processor を含む）
-   */
-  plugin: any;
-
-  /**
-   * 拡張子ごとのプラグインオプション設定
-   */
-  pluginOptionsByExt?: TextlintPluginOptionsByExt;
-
-  /**
-   * 任意の TextlintKernel を上書き指定（省略時はデフォルト使用）
-   */
+/**
+ * テスト時に指定する Textlint オプション構成
+ */
+type TextlintTestOptions = {
+  rules: TextlintTestRuleEntry[];
+  plugin: TextlintTestPlugin;
+  pluginOptionsByExt?: TextlintTestPluginOptionsByExt;
   kernel?: TextlintKernel;
 };
 
+/**
+ * テスト期待値として使用される、エラーメッセージ構造
+ */
+type TextlintTestErrorMessage = {
+  line: number;
+  message: string;
+};
+
 // export
-export { TextlintLintTestOptions, TextlintPluginOptionsByExt, TextlintRuleEntry };
+export {
+  TextlintTestErrorMessage,
+  TextlintTestOptions,
+  TextlintTestPlugin,
+  TextlintTestPluginOptionsByExt,
+  TextlintTestRuleEntry,
+};

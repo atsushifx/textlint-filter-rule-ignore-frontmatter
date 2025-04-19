@@ -1,0 +1,72 @@
+{
+  "name": "e2etest",
+  "version": "0.1.0",
+  "description": "",
+  "author": "atsushifx <atsushifx@gmail.com>",
+  "email": "atsushifx@gmail.com",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./lib/index.js",
+  "module": "./module/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./module/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "module",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "textlint",
+    "markdown",
+    "parser",
+    "frontmatter",
+    "toml",
+    "zola",
+    "hugo",
+    "markdown-parser"
+  ],
+  "scripts": {
+    "build": "pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsup --config tsup.config.ts",
+    "build:esm": "tsup --config tsup.config.module.ts",
+    "clean": "rimraf lib module",
+    "format:dprint": "dprint fmt",
+    "check:dprint": "dprint check",
+    "check:types": "tsc --noEmit",
+    "check:spellcheck": "pnpm exec cspell --config .vscode/cspell.json",
+    "lint": "pnpm exec eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "pnpm exec eslint \"src/**/*.{ts,tsx}\" --fix",
+    "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
+    "test": "pnpm run test:develop && pnpm run test:ci",
+    "test:ci": "pnpm exec vitest run ./tests/",
+    "test:develop": "pnpm exec vitest run ./src/",
+    "test:watch": "pnpm exec vitest --watch",
+    "sync:configs": "bash ../../../scripts/sync_configs.sh . "
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@textlint/kernel": "^14.6.0",
+    "@textlint/types": "^14.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter",
+    "directory": "packages/@textlint/e2etest"
+  },
+  "bugs": {
+    "url": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter/issues"
+  },
+  "homepage": "https://github.com/atsushifx/textlint-filter-rule-ignore-frontmatter#readme"
+}
