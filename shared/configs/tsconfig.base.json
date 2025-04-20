@@ -19,11 +19,11 @@
       "node"
     ],
     // ✅ 出力・ソースマップ
-    "sourceMap": true,
+    "sourceMap": false,
     "newLine": "LF",
     "composite": false,
+    // incremental build
     "incremental": true,
-    // 個別に設定すべき
     // "tsBuildInfoFile": ".tsbuildinfo",
     // input/output Dir
     "outDir": "./dist",

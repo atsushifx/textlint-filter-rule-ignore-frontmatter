@@ -13,7 +13,7 @@
  * <<
  */
 
-import { dirname, resolve } from 'path';
+import { dirname } from 'path';
 import type { Options } from 'tsup';
 import { fileURLToPath } from 'url';
 
@@ -24,7 +24,7 @@ export const baseConfig: Options = {
   format: ['esm'],
   target: 'es2022',
   dts: false,
-  sourcemap: true,
+  sourcemap: false,
   clean: true,
   minify: false,
   splitting: false,

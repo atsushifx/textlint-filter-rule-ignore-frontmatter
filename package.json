@@ -19,7 +19,9 @@
   ],
   "scripts": {
     "test:ci": "pnpm exec lerna run test:ci",
-    "sync:configs": "bash ./bin/sync_configs.sh . "
+    "clean": "pnpm exec lerna run clean",
+    "build": "pnpm exec lerna run build",
+    "sync:configs": "bash ./scripts/sync_configs.sh . "
   },
   "packageManager": "pnpm@10.8.1",
   "devDependencies": {
@@ -38,6 +40,7 @@
     "secretlint": "^9.3.0",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
     "vitest": "^3.1.1"
   }
 }

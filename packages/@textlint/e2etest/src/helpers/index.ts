@@ -1,8 +1,11 @@
-// src: helpers/utils/index.ts
+import { runFixtures } from './runners/e2e-runner-fixture';
+// src: helpers/index.ts
 // @(#) : index.ts
 //
 // Utility entry point for E2E textlint testing support
 
-export { E2E } from './e2e';
-export { lintFile } from './utils/e2e-lintfile-helper';
-export { lintText } from './utils/e2e-linttext-helper';
+// --- exports
+// TOP
+
+// functions
+export * from './e2e';

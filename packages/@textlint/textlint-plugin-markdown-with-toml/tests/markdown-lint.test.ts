@@ -1,46 +1,56 @@
 // Copyright (c) 2025 Furukawa Atsushi <atsushifx@gmail.com>
-//
-// This software is released under the MIT License.
+// Released under the MIT License
 // https://opensource.org/licenses/MIT
 
-// type
-import type { TextlintLintTestOptions } from '@tests/types/textlint-fixture.types';
+// vitest
+import { describe, expect, it, test } from 'vitest';
 
-// Test Helper
-import { runCategorizedLintFixtureTests } from '@tests/helpers/run-lint-fixtures-tests';
+// ---- @textlint/e2etest
+// types
+import type { E2ETestOptions } from '@textlint/e2etest';
 
-// parser
+// functions
+import { getLintTestCase, lintFile } from '@textlint/e2etest';
+
+// -- textlint plugin
 import { MarkdownProcessorWithTOML } from '@/index';
 
+// ────────────────────────────────────────────────────────────
 // テスト実行メイン
+// ────────────────────────────────────────────────────────────
 function testRunner() {
-  // Define the plugin wrapper (TextlintPluginObject 互換)
+  // TextlintPluginObject 互換のラッパー
   const plugin = {
     Processor: MarkdownProcessorWithTOML,
-    availableExtensions: () => ['.md'], //
+    availableExtensions: () => ['.md'],
   };
-  // Define fixture test options
-  const options: TextlintLintTestOptions = {
+
+  // Fixture テスト用オプション
+  const options: E2ETestOptions = {
     plugin,
     pluginOptionsByExt: {
-      '.md': {}, // TOML frontmatterのオプションがあればここに指定
-      '.custom': { // テスト用拡張子 '.custom'用
-        extensions: ['.custom'], // ここがキモ！
-      },
+      '.md': {}, // TOML front‑matter 用の追加オプションがあればここへ
+      '.custom': { extensions: ['.custom'] }, // 拡張子 `.custom` 用
     },
     rules: [
       {
         ruleId: 'no-todo',
-        rule: require('textlint-rule-no-todo').default, // 仮の例、実際のルールに合わせて書き換えてください
+        rule: require('textlint-rule-no-todo').default, // 必要に応じて差し替え
       },
     ],
   };
 
-  // Run fixture tests
-  const caseDir = 'fixtures';
+  // カテゴリごとにテストを実行
+  // const caseDir = 'fixtures';
+  const caseDirUnit = 'fixtures/markdown-fixtures';
+  const caseName = 'todo-in-markdown';
 
-  runCategorizedLintFixtureTests(caseDir, options);
+  const testCase = getLintTestCase(caseDirUnit, caseName, options);
+  describe(testCase.suiteTitle, () => {
+    it(testCase.testLabel, testCase.run);
+  });
 }
-
-// Run Tests
+// ────────────────────────────────────────────────────────────
+// Kick off
+// ────────────────────────────────────────────────────────────
 testRunner();

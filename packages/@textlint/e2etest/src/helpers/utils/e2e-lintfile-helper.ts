@@ -1,7 +1,8 @@
 // src: helpers/utils/e2e-lintfile-helper.ts
 // @(#) : e2e-lintfile-helper.ts
 //
-// Copyright (c) 2025 Furukawa Atsushi
+// Copyright (c) 2025 atsushifx <atsushifx@gmail.com>
+//
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 //
@@ -10,18 +11,33 @@
 // input.md, output.json を読み込み、TextlintKernel で lint 実行 → 結果を検証。
 // <<
 
-// ───────── imports
-import { TextlintKernel } from '@textlint/kernel';
-import fs from 'fs';
-import path from 'path';
+// --- imports
+// vitest
 import { expect } from 'vitest';
 
-import type { E2EErrorMessage, E2ETestOptions } from '@/types';
+// libs
+import fs from 'fs';
+import path from 'path';
 
+// textlint
+import { TextlintKernel } from '@textlint/kernel';
+
+// types
+import type { E2EErrorMessage } from '@/types';
+import type { E2ELintFunction, E2ELintResult, E2EParsedFixture } from '@/types/e2e-lint.types';
+
+// ---- global kernel instance
 const defaultKernel = new TextlintKernel();
 
-// ───────── parser
-function parseLintFile(caseDir: string, caseName: string) {
+/**
+ * 指定された fixture ディレクトリから input.md と output.json を読み取り、
+ * テスト用のパース済み情報を返却します。
+ *
+ * @param caseDir - fixture 親ディレクトリ（例: fixtures/markdown-fixtures）
+ * @param caseName - 各テストケースのサブディレクトリ名（例: todo-in-markdown）
+ * @returns 入力ファイルのパス・テキスト・期待されるメッセージ群など
+ */
+function parseLintFile(caseDir: string, caseName: string): E2EParsedFixture {
   const caseAbsoluteDir = path.join('tests', caseDir, caseName);
 
   const inputFile = fs
@@ -39,15 +55,24 @@ function parseLintFile(caseDir: string, caseName: string) {
 
   return { inputPath, text, expected, ext };
 }
-// ───────── linter
-async function lintFileFn(
-  text: string,
-  inputPath: string,
-  ext: string,
-  options: E2ETestOptions,
-) {
+
+/**
+ * TextlintKernel により lint を実行し、メッセージとファイルパスを返す。
+ *
+ * @param text - Lint 対象テキスト本文
+ * @param inputPath - 仮想または実パスとしての対象ファイル
+ * @param ext - ファイル拡張子（.md など）
+ * @param options - E2E 用の Textlint 設定オブジェクト
+ * @returns 実行結果（filePath と messages を含む）
+ */
+const lintFile: E2ELintFunction = async (
+  text,
+  inputPath,
+  ext,
+  options,
+): Promise<E2ELintResult> => {
   const kernel = options.kernel ?? defaultKernel;
-  const pluginOptions = options.pluginOptionsByExt?.[ext] ?? undefined;
+  const pluginOptions = options.pluginOptionsByExt?.[ext];
 
   return kernel.lintText(text, {
     filePath: inputPath,
@@ -61,10 +86,15 @@ async function lintFileFn(
     ],
     rules: options.rules,
   });
-}
+};
 
-// ───────── validator
-function validateMessages(actual: E2EErrorMessage[], expected: E2EErrorMessage[]) {
+/**
+ * 実行された lint 結果と、期待される output.json の中身を比較し検証します。
+ *
+ * @param actual - 実際に取得されたエラーメッセージ配列
+ * @param expected - 期待されるエラーメッセージ配列（output.json由来）
+ */
+function validateMessages(actual: E2EErrorMessage[], expected: E2EErrorMessage[]): void {
   expect(actual.length).toBe(expected.length);
   actual.forEach((msg, i) => {
     const exp = expected[i];
@@ -74,8 +104,8 @@ function validateMessages(actual: E2EErrorMessage[], expected: E2EErrorMessage[]
 }
 
 // ───────── export
-export const lintFile = {
+export const lintFileHelper = {
   parseLintFile,
-  lintFileFn,
+  lintFile,
   validateMessages,
 };

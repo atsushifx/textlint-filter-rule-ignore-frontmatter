@@ -1,5 +1,5 @@
 {
-  "name": "@textlint/e2etest",
+  "name": "@textlint/textlint-plugin-markdown-with-toml",
   "private": true,
   "version": "0.1.0",
   "description": "Fixture-based E2E test helpers for textlint plugins and rules.",
@@ -47,12 +47,13 @@
     "test:ci": "pnpm exec vitest run ./tests/",
     "test:develop": "pnpm exec vitest run ./src/",
     "test:watch": "pnpm exec vitest --watch",
-    "sync:configs": "bash ../../../bin/sync_configs.sh . "
+    "sync:configs": "bash ../../../scripts/sync_configs.sh . "
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
+    "@textlint/e2etest": "workspace:*",
     "@textlint/ast-node-types": "^14.6.0",
     "@textlint/kernel": "^14.6.0",
     "@textlint/markdown-to-ast": "^14.6.0",

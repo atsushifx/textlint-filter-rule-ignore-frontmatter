@@ -20,7 +20,8 @@ import { baseConfig } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,
-  format: ['cjs'],
+  clean: true,
+  format: ['cjs', 'esm'],
   entry: [
     'src/**/*',
     // exclude tests
@@ -28,7 +29,10 @@ export default defineConfig({
     '!src/**/*.spec.ts',
     '!src/tests/**',
   ],
-  dts: 'src/index.ts',
+  dts: {
+    entry: 'src/index.ts',
+    resolve: true,
+  },
   tsconfig: './tsconfig.json',
   outDir: 'lib', // for CJS
 });

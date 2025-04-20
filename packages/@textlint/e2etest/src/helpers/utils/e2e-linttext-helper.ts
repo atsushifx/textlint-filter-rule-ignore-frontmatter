@@ -12,9 +12,13 @@
 // <<
 
 // ───────────────────── imports
-import type { E2EErrorMessage, E2ETestOptions } from '@/types';
-import { TextlintKernel } from '@textlint/kernel';
+// type
+import type { E2EErrorMessage, E2ETestOptions } from '../../types';
+
+// vitest
 import { expect } from 'vitest';
+
+import { TextlintKernel } from '@textlint/kernel';
 
 // ───────────────────── parser
 function parseMarkdownInput(markdown: string): { filename: string; text: string; ext: string } {

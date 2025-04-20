@@ -9,7 +9,7 @@
   "sideEffects": false,
   "main": "./lib/index.js",
   "module": "./module/index.js",
-  "types": "./lib/index.d.cts",
+  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./module/index.js",

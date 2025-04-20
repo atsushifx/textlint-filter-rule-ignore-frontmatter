@@ -6,5 +6,4 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-// src/types/e2e.types
-export * from './e2e.types';
+export type { E2EErrorMessage, E2EPluginOptionsByExt, E2ERuleEntry, E2ETestOptions } from './e2e.types';
