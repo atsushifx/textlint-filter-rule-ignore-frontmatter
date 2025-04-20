@@ -14,20 +14,20 @@ import { setE2EExpect } from '@/helpers';
 
 // helpers
 import { lintMarkdownHelper } from '@/helpers';
-import { E2EErrorMessage, E2ETestOptions }from '@/types';
 import { lintMarkdownHelper } from '@/helpers';
+import { E2EErrorMessage, E2ETestOptions } from '@/types';
 
 // --- constants
 const inputMarkdown = `
   filename: input.md
   input:
   -  [ ] TODO
-`
+`;
 const outputJson = `
   [
     { "line": 1, "message": "Found TODO" }
   ]
-`
+`;
 describe('linttMarkdown', () => {
   beforeAll(() => {
     setE2EExpect(expect);
@@ -38,7 +38,7 @@ describe('linttMarkdown', () => {
     expect(parsedInput.inputPath).toBe('input.md');
     expect(parsedInput.text).toBe('-  [ ] TODO');
     expect(parsedInput.ext).toBe('.md');
-  })
+  });
 });
 
 describe('lintMarkdown - validateMessages', () => {

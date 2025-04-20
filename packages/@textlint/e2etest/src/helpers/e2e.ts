@@ -16,8 +16,8 @@
 // helpers (utils)
 import { lintFileHelper } from './utils/e2e-lintfile-helper';
 
-// runners
-import { runFixtures } from './runners/e2e-runner-fixture';
+//  factories
+import { e2eFactories } from './testcases/e2e-testcase-factory';
 
 // --- exports
 /**
@@ -28,20 +28,21 @@ import { runFixtures } from './runners/e2e-runner-fixture';
  *
  * @example
  * import { E2E } from '@textlint/e2etest';
+import { createE2ELintTestCase } from './testcases/e2e-testcase-factory';
  * const result = await E2E.lintFile.lintFile(text, filePath, ext, options);
  */
 const E2E = {
   lintFile: lintFileHelper,
   // lintAst,
-  runFixtures,
+  e2eFactories
 };
 
 // 個別ユーティリティ
 /** lintFileHelper モジュール：parser / linter / validator の統合オブジェクト */
 export { lintFileHelper };
 
-/** runFixtures モジュール：describe / it を使った自動テスト runner 群 */
-export { runFixtures };
+/** DI用expectセッター */
+export { setE2EExpect } from './core/e2e-expect-runner';
 
 /** テストケースを構築するためのユーティリティ関数 */
 export { getLintTestCase } from './runners/e2e-runner-fixture';

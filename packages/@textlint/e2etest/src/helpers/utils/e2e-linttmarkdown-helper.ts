@@ -10,15 +10,15 @@
 
 // --- imports
 // types
-import type { E2EErrorMessage, E2ELintFunction, E2ELintResult, E2EParsedFixture, E2ETestOptions, } from '@/types';
+import type { E2EErrorMessage, E2ELintFunction, E2ELintResult, E2EParsedFixture, E2ETestOptions } from '@/types';
 
 // textlint
-import { TextlintKernel, } from '@textlint/kernel';
+import { TextlintKernel } from '@textlint/kernel';
 
 // expect function 外挿用コンテナ
-import { getE2EExpect, } from '@/helpers/core/e2e-expect-runner';
-import { E2EParsedFixtureInput, } from '@/types/e2e-lint.types';
-import { E2EExpectFunction, } from '../../types/e2e-expect.types';
+import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
+import { E2EParsedFixtureInput } from '@/types/e2e-lint.types';
+import { E2EExpectFunction } from '../../types/e2e-expect.types';
 import { lintFileHelper } from './e2e-lintfile-helper';
 
 // -- constants
@@ -28,12 +28,12 @@ import { lintFileHelper } from './e2e-lintfile-helper';
 const defaultKernel = new TextlintKernel();
 
 // utility functions
-const trimEachLine = (text: string,): string =>
+const trimEachLine = (text: string): string =>
   text
     .trim()
-    .split('\n',)
-    .map((line,) => line.trim())
-    .join('\n',)
+    .split('\n')
+    .map((line) => line.trim())
+    .join('\n')
     .trim();
 
 // main functions
@@ -69,8 +69,8 @@ const parseMarkdownInput = (markdown: string): E2EParsedFixtureInput => {
   const trimmedMarkdown = markdown.trim();
   const lines = trimmedMarkdown.split('\n');
 
-  let filename: string;     // ファイル名
-  let textLines: string[];  // 本文
+  let filename: string; // ファイル名
+  let textLines: string[]; // 本文
 
   if (lines[0].startsWith('input:')) {
     const rawFilename = lines[0].replace('input:', '').trim();
@@ -106,8 +106,8 @@ const parseMarkdownInput = (markdown: string): E2EParsedFixtureInput => {
  * //   { line: 5, message: "Heading should not end with punctuation." }
  * // ]
  */
-const parseExpected = (jsonText: string,): E2EErrorMessage[] => {
-  return JSON.parse(jsonText,);
+const parseExpected = (jsonText: string): E2EErrorMessage[] => {
+  return JSON.parse(jsonText);
 };
 
 /**
@@ -143,7 +143,7 @@ const lintMarkdown: E2ELintFunction = async (
       },
     ],
     rules: options.rules,
-  },);
+  });
 };
 
 /**
@@ -160,7 +160,7 @@ const lintMarkdown: E2ELintFunction = async (
  *
  * @example
  * const actual = [{ line: 3, message: "Found TODO item." }];
-   * const expected = [{ line: 3, message: "TODO" }];
+ * const expected = [{ line: 3, message: "TODO" }];
  *
  * validateMessages(actual, expected); // → パス（部分一致OK）
  */
@@ -170,13 +170,13 @@ const validateMessages = (
 ): void => {
   const expectFunc = getE2EExpect();
 
-  expectFunc(actual.length,).toBe(expected.length,);
+  expectFunc(actual.length).toBe(expected.length);
 
-  actual.forEach((msg, i,) => {
+  actual.forEach((msg, i) => {
     const exp = expected[i];
-    expectFunc(msg.line,).toBe(exp.line,);
-    expectFunc(msg.message,).toContain(exp.message,);
-  },);
+    expectFunc(msg.line).toBe(exp.line);
+    expectFunc(msg.message).toContain(exp.message);
+  });
 };
 // --- export 統一形式
 export const lintMarkdownHelper = {

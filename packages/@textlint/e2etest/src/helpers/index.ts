@@ -1,4 +1,3 @@
-import { runFixtures } from './runners/e2e-runner-fixture';
 // src: helpers/index.ts
 // @(#) : index.ts
 //

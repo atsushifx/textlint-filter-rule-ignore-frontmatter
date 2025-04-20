@@ -12,8 +12,8 @@
 // <<
 
 // --- imports
-// vitest
-import { expect } from 'vitest';
+// expect from DI runner
+import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
 
 // libs
 import fs from 'fs';
@@ -21,12 +21,12 @@ import path from 'path';
 
 // textlint
 import { TextlintKernel } from '@textlint/kernel';
+import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
+import { expect } from 'vitest';
 
-// types
-import type { E2EErrorMessage } from '@/types';
-import type { E2ELintFunction, E2ELintResult, E2EParsedFixture } from '@/types/e2e-lint.types';
-
-// ---- global kernel instance
+/**
+ * default kernel
+ */
 const defaultKernel = new TextlintKernel();
 
 /**
@@ -37,14 +37,20 @@ const defaultKernel = new TextlintKernel();
  * @param caseName - 各テストケースのサブディレクトリ名（例: todo-in-markdown）
  * @returns 入力ファイルのパス・テキスト・期待されるメッセージ群など
  */
-function parseLintFile(caseDir: string, caseName: string): E2EParsedFixture {
-  const caseAbsoluteDir = path.join('tests', caseDir, caseName);
+const parseLintFile = (caseDir: string, caseName: string): E2EParsedFixture => {
+  // expect DI
+  const expectFunc = getE2EExpect();
+
+  const caseAbsoluteDir = caseDir.startsWith('tests')
+    ? path.join(caseDir, caseName)
+    : path.join('tests', caseDir, caseName);
 
   const inputFile = fs
     .readdirSync(caseAbsoluteDir)
     .find((f) => f.startsWith('input.') && fs.statSync(path.join(caseAbsoluteDir, f)).isFile());
 
-  expect(inputFile, `No input file found in ${caseDir}/${caseName}`).toBeTruthy();
+  expectFunc(inputFile, `No input file found in ${caseDir}/${caseName}. Expected a file like 'input.md'.`).toBeTruthy();
+
 
   const inputPath = path.join(caseAbsoluteDir, inputFile!);
   const outputPath = path.join(caseAbsoluteDir, 'output.json');
@@ -94,12 +100,17 @@ const lintFile: E2ELintFunction = async (
  * @param actual - 実際に取得されたエラーメッセージ配列
  * @param expected - 期待されるエラーメッセージ配列（output.json由来）
  */
-function validateMessages(actual: E2EErrorMessage[], expected: E2EErrorMessage[]): void {
-  expect(actual.length).toBe(expected.length);
+const validateMessages = (
+  actual: E2EErrorMessage[],
+  expected: E2EErrorMessage[]
+): void => {
+  const expectFunc = getE2EExpect();
+
+  expectFunc(actual.length).toBe(expected.length);
   actual.forEach((msg, i) => {
     const exp = expected[i];
-    expect(msg.line).toBe(exp.line);
-    expect(msg.message).toContain(exp.message);
+    expectFunc(msg.line).toBe(exp.line);
+    expectFunc(msg.message).toContain(exp.message);
   });
 }
 
