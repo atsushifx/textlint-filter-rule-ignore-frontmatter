@@ -12,12 +12,25 @@
 // 将来 lintFixture / lintAst 等を追加予定。
 // <<
 
-// ──────────── imports
+// --- imports
+// helpers (utils)
 import { lintFile } from './utils/e2e-lintfile-helper';
 import { lintText } from './utils/e2e-linttext-helper';
 
+// runners
+import { runFixtures } from './runners/e2e-runner-fixture';
+
+// --- exports
+// E2E
 export const E2E = {
   lintText,
   lintFile,
   // lintAst,
+  runFixtures,
 };
+
+// modules
+export { lintFile, lintText, runFixtures };
+
+// functions
+export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests } from './runners/e2e-runner-fixture';

@@ -87,8 +87,12 @@ function runCategorizedLintFixtureTests(
   }
 }
 
-export const runFixture = {
+// --- export
+// runFixture ...
+export const runFixtures = {
   describeFixtureCase,
   runLintFixtureTests,
   runCategorizedLintFixtureTests,
 };
+
+export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests };
