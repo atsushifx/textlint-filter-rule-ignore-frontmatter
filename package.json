@@ -20,7 +20,9 @@
   "scripts": {
     "test:ci": "pnpm exec lerna run test:ci",
     "clean": "pnpm exec lerna run clean",
-    "build": "pnpm exec lerna run build",
+    "format:dprint": "dprint fmt --config ./shared/configs/d@rint.base.jsonc ",
+    "check:dprint": "dprint check --config ./shared/configs/d@rint.base.jsonc ",
+    "check:types": "tsc --noEmit",
     "sync:configs": "bash ./scripts/sync_configs.sh . ",
     "sync:configs:all": "pnpm run sync:configs all && pnpm exec lerna run sync:configs -- all"
   },

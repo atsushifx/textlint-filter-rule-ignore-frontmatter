@@ -14,7 +14,6 @@ import { setE2EExpect } from '@/helpers';
 
 // helpers
 import { lintMarkdownHelper } from '@/helpers';
-import { lintMarkdownHelper } from '@/helpers';
 import { E2EErrorMessage, E2ETestOptions } from '@/types';
 
 // --- constants

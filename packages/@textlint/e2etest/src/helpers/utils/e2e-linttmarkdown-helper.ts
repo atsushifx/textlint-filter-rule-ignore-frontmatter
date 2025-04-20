@@ -18,8 +18,6 @@ import { TextlintKernel } from '@textlint/kernel';
 // expect function 外挿用コンテナ
 import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
 import { E2EParsedFixtureInput } from '@/types/e2e-lint.types';
-import { E2EExpectFunction } from '../../types/e2e-expect.types';
-import { lintFileHelper } from './e2e-lintfile-helper';
 
 // -- constants
 /**
@@ -69,16 +67,16 @@ const parseMarkdownInput = (markdown: string): E2EParsedFixtureInput => {
   const trimmedMarkdown = markdown.trim();
   const lines = trimmedMarkdown.split('\n');
 
-  let filename: string; // ファイル名
-  let textLines: string[]; // 本文
+  let filename: string;
+  let textLines: string[];
 
   if (lines[0].startsWith('input:')) {
     const rawFilename = lines[0].replace('input:', '').trim();
-    filename = (rawFilename === '') ? '<markdown>' : rawFilename;
-    textLines = lines.slice(1); // 2行目以降が本文
+    filename = rawFilename === '' ? '<markdown>' : rawFilename;
+    textLines = lines.slice(1); // 2行目以降が本文（空でもOK）
   } else {
     filename = '<markdown>';
-    textLines = lines; // 全体が本文
+    textLines = lines; // 全体が本文（空でもOK）
   }
 
   const text = trimEachLine(textLines.join('\n'));

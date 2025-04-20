@@ -29,7 +29,7 @@ let _baseAbsDir: string | undefined;
  * @param dir - テストケースの基準となる絶対パス
  * @returns 現在設定されているディレクトリパス
  */
-export function initializeFixtureBaseDir(dir: string,): string {
+export function initializeFixtureBaseDir(dir: string): string {
   if (!_baseAbsDir) {
     _baseAbsDir = dir;
   }
@@ -72,5 +72,3 @@ export const fixturePaths = {
   getFixtureTestPath,
   getFixtureBaseDir,
 };
-
-

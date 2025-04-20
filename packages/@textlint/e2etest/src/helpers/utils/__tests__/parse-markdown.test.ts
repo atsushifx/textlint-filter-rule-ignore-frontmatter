@@ -19,14 +19,14 @@ const testRunner = () => {
   describe('markdown parse test', () => {
     it('with input tag: and filename parse all', () => {
       const input = `
-        input: markdown.md
+        input: markdown.custom
         This is ToDo
         `;
       const result = lintMarkdownHelper.parseMarkdownInput(input);
 
-      expect(result.inputPath).toBe('markdown.md');
+      expect(result.inputPath).toBe('markdown.custom');
       expect(result.text).toBe('This is ToDo');
-      expect(result.ext).toBe('.md');
+      expect(result.ext).toBe('.custom');
     });
 
     it('no input tag: all main text.', () => {
@@ -40,7 +40,6 @@ const testRunner = () => {
       expect(result.ext).toBe('.md');
     });
 
-    //
     it('input tag with no filename:', () => {
       const input = `
         input:
@@ -52,15 +51,15 @@ const testRunner = () => {
       expect(result.text).toBe('This is ToDo');
       expect(result.ext).toBe('.md');
     });
-  });
 
-  it('if input is null text', () => {
-    const input = ``;
-    const result = lintMarkdownHelper.parseMarkdownInput(input);
+    it('if input is null text', () => {
+      const input = ``;
+      const result = lintMarkdownHelper.parseMarkdownInput(input);
 
-    expect(result.inputPath).toBe('<markdown>');
-    expect(result.text).toBe('');
-    expect(result.ext).toBe('.md');
+      expect(result.inputPath).toBe('<markdown>');
+      expect(result.text).toBe('');
+      expect(result.ext).toBe('.md');
+    });
   });
 };
 

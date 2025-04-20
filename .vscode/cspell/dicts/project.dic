@@ -6,6 +6,7 @@ hugo
 jspm
 lintfile
 linttext
+linttmarkdown
 mdast
 mdwn
 mkdn
