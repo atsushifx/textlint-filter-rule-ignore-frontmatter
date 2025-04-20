@@ -24,7 +24,7 @@ export const baseConfig: Options = {
   format: ['esm'],
   target: 'es2022',
   dts: false,
-  sourcemap: true,
+  sourcemap: false,
   clean: true,
   minify: false,
   splitting: false,

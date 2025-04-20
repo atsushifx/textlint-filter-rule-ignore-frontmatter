@@ -7,7 +7,8 @@
 import type { E2ETestOptions } from '@textlint/e2etest';
 
 // functions
-import { runFixture } from '@textlint/e2etest';
+import { runCategorizedLintFixtureTests } from '@textlint/e2etest';
+
 // -- textlint plugin
 import { MarkdownProcessorWithTOML } from '@/index';
 
@@ -38,7 +39,7 @@ function testRunner() {
 
   // カテゴリごとにテストを実行
   const caseDir = 'fixtures';
-  runFixture.runCategorizedLintFixtureTest(caseDir, options);
+  runCategorizedLintFixtureTests(caseDir, options);
 }
 // ────────────────────────────────────────────────────────────
 // Kick off

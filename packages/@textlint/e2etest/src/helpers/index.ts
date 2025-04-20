@@ -1,5 +1,4 @@
-import { lintFile } from '@/helpers';
-import { lintText } from './utils/e2e-linttext-helper';
+import { runFixtures } from './runners/e2e-runner-fixture';
 // src: helpers/index.ts
 // @(#) : index.ts
 //
@@ -11,3 +10,5 @@ export { E2E } from './e2e';
 
 // functions
 export * from './e2e';
+
+

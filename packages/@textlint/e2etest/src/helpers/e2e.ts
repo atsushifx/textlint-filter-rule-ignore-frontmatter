@@ -21,7 +21,7 @@ import { lintText } from './utils/e2e-linttext-helper';
 import { runFixtures } from './runners/e2e-runner-fixture';
 
 // --- exports
-// E2E
+// 統合オブジェクト
 export const E2E = {
   lintText,
   lintFile,
@@ -29,8 +29,12 @@ export const E2E = {
   runFixtures,
 };
 
-// modules
-export { lintFile, lintText, runFixtures };
+// 個別ユーティリティ
+//  (helpers)
+export { lintFile, lintText };
 
-// functions
+//  (runners)
+export { runFixtures };
+
+//  (functions)
 export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests } from './runners/e2e-runner-fixture';

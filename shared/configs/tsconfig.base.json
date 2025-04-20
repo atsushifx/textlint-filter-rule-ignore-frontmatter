@@ -19,7 +19,7 @@
       "node"
     ],
     // ✅ 出力・ソースマップ
-    "sourceMap": true,
+    "sourceMap": false,
     "newLine": "LF",
     "composite": false,
     // incremental build
