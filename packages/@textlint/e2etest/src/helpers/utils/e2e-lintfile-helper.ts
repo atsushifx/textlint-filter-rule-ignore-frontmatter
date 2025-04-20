@@ -10,13 +10,20 @@
 // input.md, output.json を読み込み、TextlintKernel で lint 実行 → 結果を検証。
 // <<
 
-// ───────── imports
-import { TextlintKernel } from '@textlint/kernel';
-import fs from 'fs';
-import path from 'path';
+// --- imports
+// type
+import type { E2EErrorMessage, E2ETestOptions } from '@/types';
+// vitest
 import { expect } from 'vitest';
 
-import type { E2EErrorMessage, E2ETestOptions } from '@/types';
+// libs
+import fs from 'fs';
+import path from 'path';
+
+// textlint
+import { TextlintKernel } from '@textlint/kernel';
+
+// ---- global variables
 
 const defaultKernel = new TextlintKernel();
 

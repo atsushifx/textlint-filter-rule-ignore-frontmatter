@@ -1,46 +1,47 @@
 // Copyright (c) 2025 Furukawa Atsushi <atsushifx@gmail.com>
-//
-// This software is released under the MIT License.
+// Released under the MIT License
 // https://opensource.org/licenses/MIT
 
-// type
-import type { TextlintLintTestOptions } from '@tests/types/textlint-fixture.types';
+// ---- @textlint/e2etest
+// types
+import type { E2ETestOptions } from '@textlint/e2etest';
 
-// Test Helper
-import { runCategorizedLintFixtureTests } from '@tests/helpers/run-lint-fixtures-tests';
+// helper
+import { E2E, lintText } from '@textlint/e2etest';
 
-// parser
+// -- textlint plugin
 import { MarkdownProcessorWithTOML } from '@/index';
 
+// ────────────────────────────────────────────────────────────
 // テスト実行メイン
+// ────────────────────────────────────────────────────────────
 function testRunner() {
-  // Define the plugin wrapper (TextlintPluginObject 互換)
+  // TextlintPluginObject 互換のラッパー
   const plugin = {
     Processor: MarkdownProcessorWithTOML,
-    availableExtensions: () => ['.md'], //
+    availableExtensions: () => ['.md'],
   };
-  // Define fixture test options
-  const options: TextlintLintTestOptions = {
+
+  // Fixture テスト用オプション
+  const options: E2ETestOptions = {
     plugin,
     pluginOptionsByExt: {
-      '.md': {}, // TOML frontmatterのオプションがあればここに指定
-      '.custom': { // テスト用拡張子 '.custom'用
-        extensions: ['.custom'], // ここがキモ！
-      },
+      '.md': {}, // TOML front‑matter 用の追加オプションがあればここへ
+      '.custom': { extensions: ['.custom'] }, // 拡張子 `.custom` 用
     },
     rules: [
       {
         ruleId: 'no-todo',
-        rule: require('textlint-rule-no-todo').default, // 仮の例、実際のルールに合わせて書き換えてください
+        rule: require('textlint-rule-no-todo').default, // 必要に応じて差し替え
       },
     ],
   };
 
-  // Run fixture tests
+  // カテゴリごとにテストを実行
   const caseDir = 'fixtures';
-
-  runCategorizedLintFixtureTests(caseDir, options);
+  E2E.lintText.runCategorizedLintFixtureTests(caseDir, options);
 }
-
-// Run Tests
+// ────────────────────────────────────────────────────────────
+// Kick off
+// ────────────────────────────────────────────────────────────
 testRunner();

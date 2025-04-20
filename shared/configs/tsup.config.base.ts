@@ -13,7 +13,7 @@
  * <<
  */
 
-import { dirname, resolve } from 'path';
+import { dirname } from 'path';
 import type { Options } from 'tsup';
 import { fileURLToPath } from 'url';
 

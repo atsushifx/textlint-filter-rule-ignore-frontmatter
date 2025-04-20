@@ -1,5 +1,6 @@
 {
-  "name": "e2etest",
+  "name": "@textlint/e2etest",
+  "private": true,
   "version": "0.1.0",
   "description": "",
   "author": "atsushifx <atsushifx@gmail.com>",
@@ -12,6 +13,7 @@
   "types": "./lib/index.d.ts",
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./module/index.js",
       "require": "./lib/index.js"
     }

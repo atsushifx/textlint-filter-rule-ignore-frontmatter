@@ -15,20 +15,16 @@
       // Monorepo 共有用
       "@shared/*": [
         "../../../shared/*"
-      ],
-      "@textlinttest/*": [
-        "../../../textlinttest/*"
       ]
     },
-    //
+    // incremental build info
     "tsBuildInfoFile": ".tsbuildinfo",
     // types
   },
   // files
   "include": [
     "src/**/*",
-    "tests/**/*",
-    "tests-internal/**/*"
+    "tests/**/*"
   ],
   "exclude": [
     ".git",

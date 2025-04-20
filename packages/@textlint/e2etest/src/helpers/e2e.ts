@@ -1,4 +1,4 @@
-// src: helpers/utils/e2e.ts
+// src: helpers/e2e.ts
 // @(#) : e2e.ts
 //
 // Copyright (c) 2025 Furukawa Atsushi <atsushifx@gmail.com>

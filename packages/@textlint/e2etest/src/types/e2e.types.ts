@@ -8,7 +8,7 @@
 
 // types
 import type { TextlintKernel } from '@textlint/kernel';
-import type { TextlintPluginCreator,  TextlintRuleModule } from '@textlint/types';
+import type { TextlintPluginCreator, TextlintRuleModule } from '@textlint/types';
 
 /**
  * textlint のルール情報（E2E テスト用）
@@ -42,4 +42,4 @@ type E2EErrorMessage = {
 };
 
 // export
-export { E2EErrorMessage, E2EPluginOptionsByExt, E2ERuleEntry, E2ETestOptions };
+export type { E2EErrorMessage, E2EPluginOptionsByExt, E2ERuleEntry, E2ETestOptions };
