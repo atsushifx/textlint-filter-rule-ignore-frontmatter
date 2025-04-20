@@ -17,20 +17,9 @@ import fs from 'fs';
 import path from 'path';
 
 // lint
-import { lintFile } from '@/helpers';
+import { lintFile } from '@/index';
 
-function runLintTestCase(caseDir: string, caseName: string, options: E2ETestOptions) {
-  return async () => {
-    const parsed = lintFile.parseLintFile(caseDir, caseName);
-    expect(parsed, `Missing fixture in ${caseDir}/${caseName}`).toBeTruthy();
-
-    const { inputPath, text, ext, expected } = parsed!;
-    const result = await lintFile.lintFileFn(text, inputPath, ext, options);
-    lintFile.validateMessages(result.messages, expected);
-  };
-}
-
-function describeFixtureCase(
+function getLintTestCase(
   caseDir: string,
   caseName: string,
   options: E2ETestOptions,
@@ -40,9 +29,19 @@ function describeFixtureCase(
   const suiteTitle = `suite: ${categoryName} / case: ${caseName}`;
   const testLabel = label ?? `${caseDir}/${caseName}`;
 
-  describe(suiteTitle, () => {
-    it(testLabel, runLintTestCase(caseDir, caseName, options));
-  });
+  return {
+    suiteTitle,
+    testLabel,
+    run: async () => {
+      console.debug(`[debug/runLintTestCase]: ${caseDir} / ${caseName}`);
+      const parsed = lintFile.parseLintFile(caseDir, caseName);
+      expect(parsed, `Missing fixture in ${caseDir}/${caseName}`).toBeTruthy();
+
+      const { inputPath, text, ext, expected } = parsed!;
+      const result = await lintFile.lintFileFn(text, inputPath, ext, options);
+      lintFile.validateMessages(result.messages, expected);
+    },
+  };
 }
 
 function runLintFixtureTests(categoryPath: string, options: E2ETestOptions, label?: string) {
@@ -55,12 +54,6 @@ function runLintFixtureTests(categoryPath: string, options: E2ETestOptions, labe
       const fullPath = path.join(rootDir, name);
       return fs.statSync(fullPath).isDirectory() && !name.startsWith('#');
     });
-
-  describe(`Lint Fixtures from ${label ?? categoryPath}`, () => {
-    for (const caseName of cases) {
-      it(`should lint correctly: ${caseName}`, runLintTestCase(categoryPath, caseName, options));
-    }
-  });
 }
 
 function runCategorizedLintFixtureTests(
@@ -80,19 +73,14 @@ function runCategorizedLintFixtureTests(
         && !name.startsWith('#')
       );
     });
-
-  for (const category of categories) {
-    const categoryPath = path.join(fixturesDir, category);
-    runLintFixtureTests(categoryPath, options, label);
-  }
 }
 
 // --- export
 // runFixture ...
 export const runFixtures = {
-  describeFixtureCase,
+  getLintTestCase,
   runLintFixtureTests,
   runCategorizedLintFixtureTests,
 };
 
-export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests };
+export { getLintTestCase, runCategorizedLintFixtureTests, runLintFixtureTests };

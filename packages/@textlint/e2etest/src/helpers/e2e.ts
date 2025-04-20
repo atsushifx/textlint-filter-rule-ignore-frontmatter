@@ -37,4 +37,4 @@ export { lintFile, lintText };
 export { runFixtures };
 
 //  (functions)
-export { describeFixtureCase, runCategorizedLintFixtureTests, runLintFixtureTests } from './runners/e2e-runner-fixture';
+export {  getLintTestCase, runCategorizedLintFixtureTests } from './runners/e2e-runner-fixture';
