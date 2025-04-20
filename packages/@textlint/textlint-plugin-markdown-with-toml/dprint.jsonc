@@ -1,18 +1,23 @@
 {
   "$schema": "https://dprint.dev/schemas/v0.json",
+  // global settings
   "lineWidth": 120,
   "indentWidth": 2,
   "useTabs": false,
   "newLineKind": "lf",
+  // file types
   "includes": [
     "**/*.ts",
-    "**/*.json"
+    "**/*.json",
+    "**/*.jsonc",
+    "shared/configs/**/*"
   ],
   "excludes": [
     "**/node_modules",
     "**/*-lock*.*",
     "textlinttest/**/*"
   ],
+  // plugins
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.93.4.wasm",
     "https://plugins.dprint.dev/json-0.19.4.wasm",
@@ -26,8 +31,8 @@
     "quoteStyle": "preferSingle",
     "preferSingleLine": false,
     "useBraces": "always",
-    "arrowFunction.useParentheses": "force",
-    "trailingCommas": "onlyMultiline"
+    "arrowFunction.useParentheses": "always",
+    "memberExpression.preferDotNotation": true
   },
   "json": {},
   "markdown": {},

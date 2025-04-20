@@ -46,9 +46,12 @@ export { lintFileHelper };
 /** DI用expectセッター */
 export { setE2EExpect } from './core/e2e-expect-runner';
 
-
 /**  E2E ユニットテスト用 テストケースファクトリー */
-export { createE2ELintTestCase, createE2EFixtureTestCases } from './testcases/e2e-testcase-factory'
+export {
+  createE2ELintTestCase,
+  createE2EFixtureTestCases,
+  createE2ECategorizedFixtureTestCases
+} from './testcases/e2e-testcase-factory'
 
 // E2E
 export default E2E;
