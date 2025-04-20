@@ -31,10 +31,12 @@ import { e2eFactories } from './testcases/e2e-testcase-factory';
 import { createE2ELintTestCase } from './testcases/e2e-testcase-factory';
  * const result = await E2E.lintFile.lintFile(text, filePath, ext, options);
  */
-const E2E = {
+export const E2E = {
   lintFile: lintFileHelper,
-  // lintAst,
-  e2eFactories
+  lintMarkdown: lintMarkdownHelper,   // markdown文字列ベースの実行系
+  //
+  factories: e2eFactories,            // E2Eテストケース生成ファクトリ郡
+  // lintAst なども追加できる
 };
 
 // 個別ユーティリティ
@@ -44,5 +46,9 @@ export { lintFileHelper };
 /** DI用expectセッター */
 export { setE2EExpect } from './core/e2e-expect-runner';
 
-/** テストケースを構築するためのユーティリティ関数 */
-export { getLintTestCase } from './runners/e2e-runner-fixture';
+
+/**  E2E ユニットテスト用 テストケースファクトリー */
+export { createE2ELintTestCase, createE2EFixtureTestCases } from './testcases/e2e-testcase-factory'
+
+// E2E
+export default E2E;
