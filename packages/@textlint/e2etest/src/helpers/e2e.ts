@@ -14,27 +14,34 @@
 
 // --- imports
 // helpers (utils)
-import { lintFile } from './utils/e2e-lintfile-helper';
-import { lintText } from './utils/e2e-linttext-helper';
+import { lintFileHelper } from './utils/e2e-lintfile-helper';
 
 // runners
 import { runFixtures } from './runners/e2e-runner-fixture';
 
 // --- exports
-// 統合オブジェクト
-export const E2E = {
-  lintText,
-  lintFile,
+/**
+ * E2E テスト支援ユーティリティの統合エントリ。
+ *
+ * - `lintFile`: input.md/output.json による fixture lint テスト用ユーティリティ群。
+ * - `runFixtures`: カテゴリ単位で describe/it を自動展開して実行する runner 群。
+ *
+ * @example
+ * import { E2E } from '@textlint/e2etest';
+ * const result = await E2E.lintFile.lintFile(text, filePath, ext, options);
+ */
+const E2E = {
+  lintFile: lintFileHelper,
   // lintAst,
   runFixtures,
 };
 
 // 個別ユーティリティ
-//  (helpers)
-export { lintFile, lintText };
+/** lintFileHelper モジュール：parser / linter / validator の統合オブジェクト */
+export { lintFileHelper };
 
-//  (runners)
+/** runFixtures モジュール：describe / it を使った自動テスト runner 群 */
 export { runFixtures };
 
-//  (functions)
-export {  getLintTestCase, runCategorizedLintFixtureTests } from './runners/e2e-runner-fixture';
+/** テストケースを構築するためのユーティリティ関数 */
+export { getLintTestCase } from './runners/e2e-runner-fixture';

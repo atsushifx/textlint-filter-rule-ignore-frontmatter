@@ -17,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 
 // lint
-import { lintFile } from '@/index';
+import { lintFileHelper } from '@/index';
 
 function getLintTestCase(
   caseDir: string,
@@ -34,53 +34,20 @@ function getLintTestCase(
     testLabel,
     run: async () => {
       console.debug(`[debug/runLintTestCase]: ${caseDir} / ${caseName}`);
-      const parsed = lintFile.parseLintFile(caseDir, caseName);
+      const parsed = lintFileHelper.parseLintFile(caseDir, caseName);
       expect(parsed, `Missing fixture in ${caseDir}/${caseName}`).toBeTruthy();
 
       const { inputPath, text, ext, expected } = parsed!;
-      const result = await lintFile.lintFileFn(text, inputPath, ext, options);
-      lintFile.validateMessages(result.messages, expected);
+      const result = await lintFileHelper.lintFile(text, inputPath, ext, options);
+      lintFileHelper.validateMessages(result.messages, expected);
     },
   };
-}
-
-function runLintFixtureTests(categoryPath: string, options: E2ETestOptions, label?: string) {
-  const rootDir = path.join('tests', categoryPath);
-  if (!fs.existsSync(rootDir)) throw new Error(`Fixture directory not found: ${rootDir}`);
-
-  const cases = fs
-    .readdirSync(rootDir)
-    .filter((name) => {
-      const fullPath = path.join(rootDir, name);
-      return fs.statSync(fullPath).isDirectory() && !name.startsWith('#');
-    });
-}
-
-function runCategorizedLintFixtureTests(
-  fixturesDir: string,
-  options: E2ETestOptions,
-  label?: string,
-) {
-  const rootDir = path.join('tests', fixturesDir);
-
-  const categories = fs
-    .readdirSync(rootDir)
-    .filter((name) => {
-      const fullPath = path.join(rootDir, name);
-      return (
-        fs.statSync(fullPath).isDirectory()
-        && !name.startsWith('@')
-        && !name.startsWith('#')
-      );
-    });
 }
 
 // --- export
 // runFixture ...
 export const runFixtures = {
   getLintTestCase,
-  runLintFixtureTests,
-  runCategorizedLintFixtureTests,
 };
 
-export { getLintTestCase, runCategorizedLintFixtureTests, runLintFixtureTests };
+export { getLintTestCase };

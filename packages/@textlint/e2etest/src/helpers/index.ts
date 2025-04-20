@@ -6,9 +6,6 @@ import { runFixtures } from './runners/e2e-runner-fixture';
 
 // --- exports
 // TOP
-export { E2E } from './e2e';
 
 // functions
 export * from './e2e';
-
-
