@@ -3,14 +3,17 @@
 // https://opensource.org/licenses/MIT
 
 // vitest
-import { describe, expect, it, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 // ---- @textlint/e2etest
 // types
 import type { E2ETestOptions } from '@textlint/e2etest';
 
+//  libs
+import path from 'path';
+
 // functions
-import { getLintTestCase, lintFile } from '@textlint/e2etest';
+import { E2E, setE2EExpect } from '@textlint/e2etest';
 
 // -- textlint plugin
 import { MarkdownProcessorWithTOML } from '@/index';
@@ -42,12 +45,12 @@ function testRunner() {
 
   // カテゴリごとにテストを実行
   // const caseDir = 'fixtures';
-  const caseDirUnit = 'fixtures/markdown-fixtures';
-  const caseName = 'todo-in-markdown';
-
-  const testCase = getLintTestCase(caseDirUnit, caseName, options);
-  describe(testCase.suiteTitle, () => {
-    it(testCase.testLabel, testCase.run);
+  const caseDir = 'fixtures';
+  const testCaseList = E2E.factories.createE2ECategorizedFixtureTestCases(caseDir, options);
+  describe(caseDir, () => {
+    for (const testCase of testCaseList) {
+      it(testCase.suiteTitle, testCase.run)
+    }
   });
 }
 // ────────────────────────────────────────────────────────────
