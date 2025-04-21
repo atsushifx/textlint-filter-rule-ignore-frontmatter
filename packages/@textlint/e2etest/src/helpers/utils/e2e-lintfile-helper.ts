@@ -23,9 +23,17 @@ import type { E2ELintFunction, E2ELintResult, E2EParsedFixture, E2EParsedFixture
 =======
 // -- imports
 // types
+<<<<<<< HEAD
 import type { E2EErrorMessage, E2ETestOptions } from '@/types';
 import type { E2ELintFunction, E2ELintResult, E2EParsedFixture, E2EParsedFixtureInput } from '@/types/e2e-lint.types';
 >>>>>>> 61113ec (chore: format by dprint)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+import type { E2EErrorMessage, E2ETestOptions } from '@/types';
+import type { E2ELintFunction, E2ELintResult, E2EParsedFixture, E2EParsedFixtureInput } from '@/types/e2e-lint.types';
+=======
+import type { E2EErrorMessage, E2ETestOptions, } from '@/types';
+import type { E2ELintFunction, E2ELintResult, E2EParsedFixture, E2EParsedFixtureInput, } from '@/types/e2e-lint.types';
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 
 // libs
 import fs from 'fs';
@@ -43,6 +51,7 @@ import { E2E } from '@/index';
 >>>>>>> 61113ec (chore: format by dprint)
 // textlint
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { TextlintKernel } from '@textlint/kernel';
 import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
 import { expect } from 'vitest';
@@ -55,15 +64,31 @@ import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
 <<<<<<< HEAD
 ||||||| parent of 61113ec (chore: format by dprint)
 //
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+import { TextlintKernel } from '@textlint/kernel';
+import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
+=======
+import { getE2EExpect, } from '@/helpers/core/e2e-expect-runner';
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 import { TextlintKernel, } from '@textlint/kernel';
 
 // --- constants
+<<<<<<< HEAD
 =======
 //
 import { TextlintKernel } from '@textlint/kernel';
 
 // --- constants
 >>>>>>> 61113ec (chore: format by dprint)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+/**
+ * 外挿用 expect 関数
+ */
+const expect = getE2EExpect();
+
+/**
+=======
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 /**
  * default kernel
  */
@@ -77,6 +102,7 @@ const defaultKernel = new TextlintKernel();
  * @param caseName - 各テストケースのサブディレクトリ名（例: todo-in-markdown）
  * @returns 入力ファイルのパス・テキスト・期待されるメッセージ群など
  */
+<<<<<<< HEAD
 const parseLintFile = (caseDir: string, caseName: string): E2EParsedFixture => {
 <<<<<<< HEAD
   // expect DI
@@ -93,15 +119,38 @@ const parseLintFile = (caseDir: string, caseName: string,): E2EParsedFixture => 
   const absCaseSuitePath = E2E.fixturePaths.getFixtureTestPath(caseDir, caseName);
   console.debug('[parseLintFile] absCaseSuitePath=', absCaseSuitePath);
 >>>>>>> 61113ec (chore: format by dprint)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+const parseLintFile = (caseDir: string, caseName: string): E2EParsedFixture => {
+  const caseAbsoluteDir = caseDir.startsWith('tests')
+    ? path.join(caseDir, caseName)
+    : path.join('tests', caseDir, caseName);
+=======
+const parseLintFile = (caseDir: string, caseName: string,): E2EParsedFixture => {
+  const caseAbsoluteDir = caseDir.startsWith('tests',)
+    ? path.join(caseDir, caseName,)
+    : path.join('tests', caseDir, caseName,);
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 
   const inputFile = fs
+<<<<<<< HEAD
 <<<<<<< HEAD
     .readdirSync(caseAbsoluteDir)
     .find((f) => f.startsWith('input.') && fs.statSync(path.join(caseAbsoluteDir, f)).isFile());
 ||||||| parent of 61113ec (chore: format by dprint)
     .readdirSync(absCaseSuitePath,)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+    .readdirSync(caseAbsoluteDir)
+=======
+    .readdirSync(caseAbsoluteDir,)
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
     .find(
+<<<<<<< HEAD
       (f,) => f.startsWith('input.',) && fs.statSync(path.join(absCaseSuitePath, f,),).isFile(),
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+      (f) => f.startsWith('input.') && fs.statSync(path.join(caseAbsoluteDir, f)).isFile()
+=======
+      (f,) => f.startsWith('input.',) && fs.statSync(path.join(caseAbsoluteDir, f,),).isFile(),
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
     );
 =======
     .readdirSync(absCaseSuitePath)
@@ -110,11 +159,22 @@ const parseLintFile = (caseDir: string, caseName: string,): E2EParsedFixture => 
     );
 >>>>>>> 61113ec (chore: format by dprint)
 
+<<<<<<< HEAD
   expectFunc(inputFile, `No input file found in ${caseDir}/${caseName}. Expected a file like 'input.md'.`).toBeTruthy();
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+  expect(inputFile, `No input file found in ${caseDir}/${caseName}. Expected a file like 'input.md'.`).toBeTruthy();
+=======
+  if (!inputFile) {
+    throw new Error(
+      `[parseLintFile] No input file found in "${caseDir}/${caseName}". Expected a file like 'input.md'.`,
+    );
+  }
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 
 <<<<<<< HEAD
 ||||||| parent of 61113ec (chore: format by dprint)
   // 入力
+<<<<<<< HEAD
   const inputPath = path.join(absCaseSuitePath, inputFile!,);
   const text = fs.readFileSync(inputPath, 'utf8',);
   const ext = path.extname(inputPath,) || '.md';
@@ -124,7 +184,17 @@ const parseLintFile = (caseDir: string, caseName: string,): E2EParsedFixture => 
   const text = fs.readFileSync(inputPath, 'utf8');
   const ext = path.extname(inputPath) || '.md';
 >>>>>>> 61113ec (chore: format by dprint)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+  const inputPath = path.join(caseAbsoluteDir, inputFile!);
+  const text = fs.readFileSync(inputPath, 'utf8');
+  const ext = path.extname(inputPath) || '.md';
+=======
+  const inputPath = path.join(caseAbsoluteDir, inputFile!,);
+  const text = fs.readFileSync(inputPath, 'utf8',);
+  const ext = path.extname(inputPath,) || '.md';
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   const inputPath = path.join(caseAbsoluteDir, inputFile!);
   const outputPath = path.join(caseAbsoluteDir, 'output.json');
@@ -137,15 +207,29 @@ const parseLintFile = (caseDir: string, caseName: string,): E2EParsedFixture => 
   const outputPath = path.join(absCaseSuitePath, 'output.json');
   const expected = JSON.parse(fs.readFileSync(outputPath, 'utf8')) as E2EErrorMessage[];
 >>>>>>> 61113ec (chore: format by dprint)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+  // 出力
+  const outputPath = path.join(caseAbsoluteDir, 'output.json');
+  const expected = JSON.parse(fs.readFileSync(outputPath, 'utf8')) as E2EErrorMessage[];
+=======
+  // 出力
+  const outputPath = path.join(caseAbsoluteDir, 'output.json',);
+  const expected = JSON.parse(fs.readFileSync(outputPath, 'utf8',),) as E2EErrorMessage[];
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 
   const text = fs.readFileSync(inputPath, 'utf8');
   const expected = JSON.parse(fs.readFileSync(outputPath, 'utf8')) as E2EErrorMessage[];
   const ext = path.extname(inputPath);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   return { inputPath, text, expected, ext };
 }
 ||||||| parent of 61113ec (chore: format by dprint)
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+  return { input:parsedInput, output:expected };
+=======
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
   return { input: parsedInput, output: expected, };
 };
 =======
@@ -163,10 +247,22 @@ const parseLintFile = (caseDir: string, caseName: string,): E2EParsedFixture => 
  * @returns 実行結果（filePath と messages を含む）
  */
 const lintFile: E2ELintFunction = async (
+<<<<<<< HEAD
   text,
   inputPath,
   ext,
   options,
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+  inputPath: string,
+  text:   string,
+  ext: string,
+  options: E2ETestOptions,
+=======
+  inputPath: string,
+  text: string,
+  ext: string,
+  options: E2ETestOptions,
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 ): Promise<E2ELintResult> => {
   const kernel = options.kernel ?? defaultKernel;
   const pluginOptions = options.pluginOptionsByExt?.[ext];
@@ -182,7 +278,7 @@ const lintFile: E2ELintFunction = async (
       },
     ],
     rules: options.rules,
-  });
+  },);
 };
 
 /**
@@ -193,13 +289,14 @@ const lintFile: E2ELintFunction = async (
  */
 const validateMessages = (
   actual: E2EErrorMessage[],
-  expected: E2EErrorMessage[]
+  expected: E2EErrorMessage[],
 ): void => {
   const expectFunc = getE2EExpect();
 
-  expectFunc(actual.length).toBe(expected.length);
-  actual.forEach((msg, i) => {
+  expectFunc(actual.length,).toBe(expected.length,);
+  actual.forEach((msg, i,) => {
     const exp = expected[i];
+<<<<<<< HEAD
     expectFunc(msg.line).toBe(exp.line);
     expectFunc(msg.message).toContain(exp.message);
 <<<<<<< HEAD
@@ -224,6 +321,15 @@ const validateMessages = (
     // 例: デバッグ時に役立つコメント (任意)
     // console.debug(`[validateMessages] #${i} expected=${exp.message}, actual=${msg.message}`);
   });
+||||||| parent of 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
+    expectFunc(msg.line).toBe(exp.line);
+    expectFunc(msg.message).toContain(exp.message);
+  });
+=======
+    expectFunc(msg.line,).toBe(exp.line,);
+    expectFunc(msg.message,).toContain(exp.message,);
+  },);
+>>>>>>> 746caad (fix(e2e): restore createE2ECategorizedFixtureTests to fix regression)
 };
 
 // --- exports
