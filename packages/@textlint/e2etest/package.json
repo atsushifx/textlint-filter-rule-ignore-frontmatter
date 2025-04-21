@@ -47,8 +47,8 @@
     "lint:fix": "pnpm exec eslint \"src/**/*.{ts,tsx}\" --fix",
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm run test:develop && pnpm run test:ci",
-    "test:ci": "pnpm exec vitest run ./tests/",
-    "test:develop": "pnpm exec vitest run ./src/",
+    "test:ci": "pnpm exec vitest run ",
+    "test:develop": "pnpm exec vitest run --config ./vitest.config.unit.ts",
     "test:watch": "pnpm exec vitest --watch",
     "sync:configs": "bash ../../../scripts/sync_configs.sh . "
   },

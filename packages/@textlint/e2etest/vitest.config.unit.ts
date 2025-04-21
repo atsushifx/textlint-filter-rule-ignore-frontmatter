@@ -2,12 +2,12 @@
 //
 // @version   1.0.0
 // @since     2025-04-12
-// @author    atsushifx <atsushifx@gmail.com>
+// @author    tsushifxi <atsushifx@gmail.com>
 // @license   MIT
 //
 // @description<<
 //
-// Vitest configuration for running E2E Test (CI Test)
+// Vitest configuration for running unit tests.
 // Designed for TypeScript plugin development (textlint).
 //
 // <<
@@ -24,6 +24,10 @@ export default defineConfig({
   ...baseConfig,
   test: {
     ...baseConfig.test,
+    include: [
+      'src/**/*.test.ts',
+      'src/**/*.spec.ts',
+    ],
   },
   resolve: {
     alias: {

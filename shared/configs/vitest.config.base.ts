@@ -31,8 +31,10 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     include: [
-      'src/**/*.test.ts',
-      'src/**/*.spec.ts',
+      // Unit Test (develop test) exec only sub repositories
+      // 'src/**/*.test.ts',
+      // 'src/**/*.spec.ts',
+      // CI Tests exec all  repositories
       'tests/**/*.test.ts',
       'tests/**/*.spec.ts',
     ],
