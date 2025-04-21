@@ -2,7 +2,7 @@
 //
 // @version   1.0.0
 // @since     2025-04-12
-// @author    tsushifxi <atsushifx@gmail.com>
+// @author    atsushifx <atsushifx@gmail.com>
 // @license   MIT
 //
 // @description<<
@@ -28,10 +28,13 @@ export default defineConfig({
       'src/**/*.test.ts',
       'src/**/*.spec.ts',
     ],
+    exclude: [
+      'src/**/#*.ts',
+    ],
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-},);
+});

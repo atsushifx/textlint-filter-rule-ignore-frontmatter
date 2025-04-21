@@ -44,6 +44,8 @@ export default defineConfig({
       'dist/**',
       'lib/**',
       'module/**',
+      // コメントアウト
+      `**/#*.ts`,
     ],
   },
 });
