@@ -3,9 +3,12 @@ import { runFixtures } from './runners/e2e-runner-fixture';
 // @(#) : index.ts
 //
 // Utility entry point for E2E textlint testing support
+// --- imports
+// 統合エントリポイント
+import { E2E, } from './e2e';
 
 // --- exports
-// TOP
-
-// functions
 export * from './e2e';
+
+// E2E
+export default E2E;
