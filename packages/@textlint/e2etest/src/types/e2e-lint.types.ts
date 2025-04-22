@@ -26,15 +26,29 @@ type E2ELintResult = {
  * - `input.md` および `output.json` から構成される。
  * - `ext` はプラグイン判定や振り分けに使用されるファイル拡張子。
  */
-type E2EParsedFixture = {
+type E2EParsedFixtureInput = {
   /** 入力ファイルのパス */
   inputPath: string;
   /** 対象となるテキスト本文 */
   text: string;
-  /** 期待される出力メッセージ群 */
-  expected: E2EErrorMessage[];
   /** 入力ファイルの拡張子（例: `.md`, `.txt`） */
   ext: string;
+};
+
+/**
+ * fixture ベースの E2E テストにおける、1ケース分のテスト出力構造。
+ * - input: input.md からパースされる構造体
+ * - expected: output.json から読み込んだ構造体
+ */
+type E2EParsedFixture = {
+  /**
+   * input.md から解析された構造体
+   */
+  input: E2EParsedFixtureInput;
+  /**
+   * output.json から解析された構造体
+   */
+  output: E2EErrorMessage[];
 };
 
 /**
@@ -61,4 +75,4 @@ type E2ELintFunction = (
 ) => Promise<E2ELintResult>;
 
 // --- export
-export type { E2ELintFunction, E2ELintResult, E2EParsedFixture };
+export type { E2ELintFunction, E2ELintResult, E2EParsedFixture, E2EParsedFixtureInput };

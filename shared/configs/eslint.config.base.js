@@ -15,9 +15,9 @@
 // - Applies config to all `*.ts` files
 // <<
 
-import js from '@eslint/js'
-import tseslint from '@typescript-eslint/eslint-plugin'
-import tsparser from '@typescript-eslint/parser'
+import js from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
 //
 import importPlugin from 'eslint-plugin-import';
 
@@ -43,22 +43,41 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      "import": importPlugin
+      'import': importPlugin,
     },
     rules: {
       ...tseslint.configs.recommended.rules,
+      // string ts
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+      '@typescript-eslint/prefer-optional-chain': 'warn',
+      //
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      "import/no-unresolved": "error",
-      "import/order": ["warn", { "newlines-between": "always" }],
+      'import/no-unresolved': 'error',
+      'import/order': ['warn', {
+        'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+        'newlines-between': 'always',
+        'alphabetize': {
+          'order': 'asc',
+          'caseInsensitive': true,
+        },
+      }],
+      // ✅ 通常関数を禁止し、関数式に統一
+      'func-style': ['error', 'expression'],
+
+      // ✅ 明示的な戻り値型（お好みで）
+      '@typescript-eslint/explicit-function-return-type': ['warn', {
+        allowExpressions: true,
+        allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+      }],
     },
     settings: {
       'import/resolver': {
         typescript: {
           project: ['./tsconfig.json'], // ワークスペース内のtsconfigを指す
-        }
-      }
+        },
+      },
     },
   },
 ];
-

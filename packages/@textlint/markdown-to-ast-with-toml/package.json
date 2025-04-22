@@ -48,7 +48,7 @@
     "test:ci": "pnpm exec vitest run ./tests/",
     "test:develop": "pnpm exec vitest run ./src/",
     "test:watch": "pnpm exec vitest --watch",
-    "sync:configs": "bash ../../../bin/sync_configs.sh . "
+    "sync:configs": "bash ../../../scripts/sync_configs.sh . "
   },
   "publishConfig": {
     "access": "public"

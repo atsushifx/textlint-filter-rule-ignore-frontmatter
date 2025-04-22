@@ -2,12 +2,12 @@
 //
 // @version   1.0.0
 // @since     2025-04-12
-// @author    Furukawa, Atsushi <atsushifx@gmail.com>
+// @author    atsushifx <atsushifx@gmail.com>
 // @license   MIT
 //
 // @description<<
 //
-// Vitest configuration for running unit tests.
+// Vitest configuration for running E2E Test (CI Test)
 // Designed for TypeScript plugin development (textlint).
 //
 // <<
@@ -22,6 +22,9 @@ import baseConfig from '../../../shared/configs/vitest.config.base';
 // config
 export default defineConfig({
   ...baseConfig,
+  test: {
+    ...baseConfig.test,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

@@ -5,21 +5,21 @@
 
 // src/tests/dummy-rule.ts
 // src/tests/dummy-rule.ts
-import type { TextlintRuleContext, TextlintRuleReporter } from '@textlint/types';
+import type { TextlintRuleContext, TextlintRuleReporter, } from '@textlint/types';
 
 // dummy rule is check NG linter
-const ngWordRule: TextlintRuleReporter = (context: TextlintRuleContext) => {
-  const { Syntax, getSource, report, RuleError } = context;
+const ngWordRule: TextlintRuleReporter = (context: TextlintRuleContext,) => {
+  const { Syntax, getSource, report, RuleError, } = context;
 
   return {
-    [Syntax.Str](node) {
-      const text = getSource(node);
-      console.debug('[ng-word] node text:', JSON.stringify(text));
-      if (text.includes('NG')) {
-        report(node, new RuleError('NG word found'));
+    [Syntax.Str](node,) {
+      const text = getSource(node,);
+      console.debug('[ng-word] node text:', JSON.stringify(text,),);
+      if (text.includes('NG',)) {
+        report(node, new RuleError('NG word found',),);
       }
     },
   };
 };
 
-export { ngWordRule };
+export { ngWordRule, };

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ./bin/sync-configs.sh
+#src: ./scripts/sync-configs.sh
 #
 # @(#) : Sync shared config files into target directory (by type)
 #
@@ -61,7 +61,7 @@ sync_config_type() {
 
   case "$config_type" in
     dprint)
-      config_files=("dprint.base.json:dprint.json")
+      config_files=("dprint.base.jsonc:dprint.jsonc")
       copy_config_files config_files "$target_dir"
       ;;
     lefthook)

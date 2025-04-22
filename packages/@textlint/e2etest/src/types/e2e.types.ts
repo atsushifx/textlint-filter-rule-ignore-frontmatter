@@ -36,6 +36,8 @@ type E2EPluginOptionsByExt = Record<string, any>;
  * - 利用する Textlint プラグイン
  * - 拡張子ごとのプラグイン設定
  * - 任意でカスタム TextlintKernel を指定可能
+ *
+ * 通常は `plugin` + `rules` の指定のみで動作します。
  */
 type E2ETestOptions = {
   /** 適用するルールのリスト */
@@ -63,7 +65,8 @@ type E2EErrorMessage = {
 /**
  * 単一のテストケース（it）として実行される非同期関数型
  *
- * テストフレームワーク（Vitest/Jest）で直接使用可能。
+ * `createE2ELintTestCase` 等で生成されるテスト関数の型。
+ * テストフレームワーク（Vitest, Jest）でそのまま `it(...)` に渡せます。
  */
 export type E2ETestRunner = () => Promise<void>;
 

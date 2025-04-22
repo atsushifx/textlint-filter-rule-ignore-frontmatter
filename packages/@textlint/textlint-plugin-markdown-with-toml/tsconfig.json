@@ -18,7 +18,7 @@
       ]
     },
     // incremental build info
-    "tsBuildInfoFile": ".tsbuildinfo",
+    "tsBuildInfoFile": ".tsbuildinfo"
     // types
   },
   // files

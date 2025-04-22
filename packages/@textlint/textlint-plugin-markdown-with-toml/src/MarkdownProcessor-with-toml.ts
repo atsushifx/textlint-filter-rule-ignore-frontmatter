@@ -13,7 +13,7 @@ import type {
 } from '@textlint/types';
 
 // parser
-import { parse } from '@textlint/markdown-to-ast-with-toml';
+import { parse, } from '@textlint/markdown-to-ast-with-toml';
 
 class MarkdownProcessorWithTOML implements TextlintPluginProcessor {
   // property
@@ -21,24 +21,24 @@ class MarkdownProcessorWithTOML implements TextlintPluginProcessor {
   extensions: Array<string>;
 
   // constuctor
-  constructor(config = {}) {
+  constructor(config = {},) {
     this.config = config;
     this.extensions = this.config.extensions ? this.config.extensions : [];
   }
 
   // methods
   availableExtensions(): string[] {
-    return ['.md', '.markdown', '.mdown', '.mkdn', '.mkd', '.mdwn', '.mkdown', '.ron'].concat(this.extensions);
+    return ['.md', '.markdown', '.mdown', '.mkdn', '.mkd', '.mdwn', '.mkdown', '.ron',].concat(this.extensions,);
   }
   processor(): {
-    preProcess: (text: string, filePath?: string) => TextlintPluginPreProcessResult;
-    postProcess: (messages: TextlintMessage[], filePath?: string) => TextlintPluginPostProcessResult;
+    preProcess: (text: string, filePath?: string,) => TextlintPluginPreProcessResult;
+    postProcess: (messages: TextlintMessage[], filePath?: string,) => TextlintPluginPostProcessResult;
   } {
     return {
-      preProcess(text: string, filePath?: string): TextlintPluginPreProcessResult {
-        return parse(text);
+      preProcess(text: string, filePath?: string,): TextlintPluginPreProcessResult {
+        return parse(text,);
       },
-      postProcess(messages: TextlintMessage[], filePath?: string): TextlintPluginPostProcessResult {
+      postProcess(messages: TextlintMessage[], filePath?: string,): TextlintPluginPostProcessResult {
         return {
           messages,
           filePath: filePath || `<unknown>`,
@@ -48,4 +48,4 @@ class MarkdownProcessorWithTOML implements TextlintPluginProcessor {
   }
 }
 // export
-export { MarkdownProcessorWithTOML };
+export { MarkdownProcessorWithTOML, };

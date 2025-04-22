@@ -5,10 +5,10 @@
 // https://opensource.org/licenses/MIT
 
 // types
-import type { TextlintFilterRuleModule, TextlintRuleReporter } from '@textlint/types';
+import type { TextlintFilterRuleModule, TextlintRuleReporter, } from '@textlint/types';
 
 // textlint modules
-import { TextlintKernel } from '@textlint/kernel';
+import { TextlintKernel, } from '@textlint/kernel';
 import markdown from '@textlint/textlint-plugin-markdown';
 
 /**
@@ -22,7 +22,7 @@ const textlintTestRunner = async ({
   text: string;
   rule: { ruleId: string; rule: TextlintRuleReporter };
   filter?: { ruleId: string; rule: TextlintFilterRuleModule };
-}) => {
+},) => {
   const kernel = new TextlintKernel();
 
   return kernel.lintText(text, {
@@ -33,10 +33,10 @@ const textlintTestRunner = async ({
         plugin: markdown,
       },
     ],
-    rules: [rule],
-    filterRules: filter ? [filter] : [],
-  });
+    rules: [rule,],
+    filterRules: filter ? [filter,] : [],
+  },);
 };
 
 // export
-export { textlintTestRunner };
+export { textlintTestRunner, };

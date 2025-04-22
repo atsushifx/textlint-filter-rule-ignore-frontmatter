@@ -1,5 +1,5 @@
 // LICENSE : MIT
 'use strict';
-import { MarkdownProcessorWithTOML } from './MarkdownProcessor-with-toml';
+import { MarkdownProcessorWithTOML, } from './MarkdownProcessor-with-toml';
 
-export { MarkdownProcessorWithTOML };
+export { MarkdownProcessorWithTOML, };

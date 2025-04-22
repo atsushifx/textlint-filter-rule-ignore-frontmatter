@@ -20,14 +20,18 @@
   "scripts": {
     "test:ci": "pnpm exec lerna run test:ci",
     "clean": "pnpm exec lerna run clean",
-    "build": "pnpm exec lerna run build",
-    "sync:configs": "bash ./scripts/sync_configs.sh . "
+    "format:dprint": "dprint fmt --config ./shared/configs/d@rint.base.jsonc ",
+    "check:dprint": "dprint check --config ./shared/configs/d@rint.base.jsonc ",
+    "check:types": "tsc --noEmit",
+    "sync:configs": "bash ./scripts/sync_configs.sh . ",
+    "sync:configs:all": "pnpm run sync:configs all && pnpm exec lerna run sync:configs -- all"
   },
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.9.0",
   "devDependencies": {
     "@commitlint/types": "^19.8.0",
     "@eslint/js": "^9.24.0",
     "@secretlint/secretlint-rule-preset-recommend": "^9.3.0",
+    "@textlint/types": "^14.6.0",
     "@types/node": "^22.14.1",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",

@@ -27,7 +27,7 @@
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm exec vitest run",
     "test:watch": "pnpm exec vitest",
-    "sync:configs": "bash ../../../bin/sync_configs.sh . "
+    "sync:configs": "bash ../../../scripts/sync_configs.sh . "
   },
   "files": [
     "dist",

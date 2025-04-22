@@ -1,28 +1,28 @@
 {
-	"extends": "../../../shared/configs/tsconfig.base.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": [
-				"src/*" // for sub repository local
-			],
-			"@shared/*": [
-				"../../../shared/*"
-			]
-		},
-		"outDir": "lib",
-		"tsBuildInfoFile": ".tsbuildinfo",
-	},
-	"include": [
-		"src/**/*",
-		"types/**/*"
-	],
-	"exclude": [
-		".git",
-		"node_modules",
-		"lib",
-		"module",
-		"tests"
-	],
-	"references": []
+  "extends": "../../../shared/configs/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*" // for sub repository local
+      ],
+      "@shared/*": [
+        "../../../shared/*"
+      ]
+    },
+    "outDir": "lib",
+    "tsBuildInfoFile": ".tsbuildinfo"
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*"
+  ],
+  "exclude": [
+    ".git",
+    "node_modules",
+    "lib",
+    "module",
+    "tests"
+  ],
+  "references": []
 }
