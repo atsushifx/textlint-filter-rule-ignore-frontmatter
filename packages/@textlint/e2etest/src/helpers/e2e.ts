@@ -12,36 +12,19 @@
 // 将来 lintFixture / lintAst 等を追加予定。
 // <<
 
-// --- imports
-<<<<<<< HEAD
-||||||| parent of 61113ec (chore: format by dprint)
-// setup methods
-import { setE2EExpect, } from './core/e2e-expect-runner';
-import { initializeFixtureBaseDir, } from './utils/e2e-fixture-paths';
-
-=======
+// --- imports<
 // setup methods
 import { setE2EExpect } from './core/e2e-expect-runner';
 import { initializeFixtureBaseDir } from './utils/e2e-fixture-paths';
 
->>>>>>> 61113ec (chore: format by dprint)
 // helpers (utils)
-<<<<<<< HEAD
-import { lintFileHelper } from './utils/e2e-lintfile-helper';
-||||||| parent of 61113ec (chore: format by dprint)
-import { fixturePaths, } from './utils/e2e-fixture-paths';
-
-import { lintFileHelper, } from './utils/e2e-lintfile-helper';
-import { lintMarkdownHelper, } from './utils/e2e-linttmarkdown-helper';
-=======
 import { fixturePaths } from './utils/e2e-fixture-paths';
 
 import { lintFileHelper } from './utils/e2e-lintfile-helper';
 import { lintMarkdownHelper } from './utils/e2e-linttmarkdown-helper';
->>>>>>> 61113ec (chore: format by dprint)
 
 //  factories
-import { e2eFactories } from './testcases/e2e-testcase-factory';
+import { e2eFactories, } from './testcases/e2e-testcase-factory';
 
 // --- exports
 /**
@@ -56,39 +39,33 @@ import { createE2ELintTestCase } from './testcases/e2e-testcase-factory';
  * const result = await E2E.lintFile.lintFile(text, filePath, ext, options);
  */
 export const E2E = {
+  // setup utils
+  setup: {
+    setE2EExpect,
+    initializeFixtureBaseDir,
+  },
+
+  // utils
+  fixturePaths,
+
+  // test factories
+  factories: e2eFactories, // E2Eテストケース生成ファクトリ郡
+
+  // lint Helper
   lintFile: lintFileHelper,
-  lintMarkdown: lintMarkdownHelper,   // markdown文字列ベースの実行系
-  //
-  factories: e2eFactories,            // E2Eテストケース生成ファクトリ郡
+  lintMarkdown: lintMarkdownHelper, // markdown文字列ベースの実行系
   // lintAst なども追加できる
 };
 
-// 個別ユーティリティ
+// --- 個別ユーティリティ
 /** lintFileHelper モジュール：parser / linter / validator の統合オブジェクト */
-<<<<<<< HEAD
-export { lintFileHelper };
+export { lintFileHelper, lintMarkdownHelper, };
 
 /** DI用expectセッター */
 export { setE2EExpect } from './core/e2e-expect-runner';
-||||||| parent of 61113ec (chore: format by dprint)
-export { lintFileHelper, lintMarkdownHelper, };
-=======
-export { lintFileHelper, lintMarkdownHelper };
->>>>>>> 61113ec (chore: format by dprint)
+
 
 /**  E2E ユニットテスト用 テストケースファクトリー */
-<<<<<<< HEAD
-export {
-  createE2ELintTestCase,
-  createE2EFixtureTestCases,
-  createE2ECategorizedFixtureTestCases
-} from './testcases/e2e-testcase-factory'
+export { createE2ELintTestCase, createE2EFixtureTestCases } from './testcases/e2e-testcase-factory'
 
-// E2E
-export default E2E;
-||||||| parent of 61113ec (chore: format by dprint)
-export { createE2EFixtureTestCases, createE2ELintTestCase, } from './testcases/e2e-testcase-factory';
 
-=======
-export { createE2EFixtureTestCases, createE2ELintTestCase } from './testcases/e2e-testcase-factory';
->>>>>>> 61113ec (chore: format by dprint)

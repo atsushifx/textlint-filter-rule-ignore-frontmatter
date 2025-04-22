@@ -40,10 +40,18 @@ export const createE2ELintTestCase = (
       console.debug(`[debug/createE2ELintTestCase]: ${caseDir} / ${caseName}`,);
       const parsed = lintFileHelper.parseLintFile(caseDir, caseName,);
 
+<<<<<<< HEAD
 
       assert.ok(parsed, `Missing fixture in ${caseDir}/${caseName}`);
 
       const { inputPath, text, ext} = parsed!.input;
+||||||| parent of 75e7f4c (feat(e2e): テスト初期化系ユーティリティを setup に統合)
+      assert.ok(parsed, `Missing fixture in ${caseDir}/${caseName}`,);
+
+      const { inputPath, text, ext, } = parsed!.input;
+=======
+      const { inputPath, text, ext, } = parsed!.input;
+>>>>>>> 75e7f4c (feat(e2e): テスト初期化系ユーティリティを setup に統合)
       const expected = parsed!.output;
       const result = await lintFileHelper.lintFile(text, inputPath, ext, options);
       lintFileHelper.validateMessages(result.messages, expected);
