@@ -18,7 +18,7 @@
     // typesRoots : /shared/configsカラの相対パス
     "typeRoots": [
       "../types/",
-      "../../node_modules/@types/"
+      "../../node_modules/@types/",
     ],
     // ✅ 出力・ソースマップ
     "sourceMap": false,
@@ -39,12 +39,12 @@
     "paths": {
       "@/*": [
         "./*"
-      ],
+      ]
       // 外部パッケージ用にリザーブ
       //    "@textlinttest/*": [
       //
       //      ]
-    },
+    }
     // ✅ 型補完
-  },
+  }
 }

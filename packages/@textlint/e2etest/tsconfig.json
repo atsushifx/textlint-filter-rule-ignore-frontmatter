@@ -19,7 +19,7 @@
       ]
     },
     // incremental build info
-    "tsBuildInfoFile": ".tsbuildinfo"
+    "tsBuildInfoFile": ".cache/tsbuildinfo"
   },
   // files
   "include": [

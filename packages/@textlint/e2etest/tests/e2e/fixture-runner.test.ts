@@ -10,7 +10,7 @@ import { describe, expect, it } from 'vitest';
 
 // ---- @textlint/e2etest
 // types
-import type { E2ETestOptions } from '@/types';
+import type { E2ETestOptions, } from '@/types';
 
 //  libs
 
@@ -30,7 +30,7 @@ import noToDo from 'textlint-rule-no-todo';
 // テスト用定数
 const defaultPlugin = {
   Processor: MarkdownPlugin.Processor,
-  availableExtensions: () => ['.md'],
+  availableExtensions: () => ['.md',],
 };
 
 const defaultOptions: E2ETestOptions = {
