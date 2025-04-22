@@ -23,4 +23,4 @@ export interface E2EMatcher {
 /**
  * expect 関数：actual,message を受け取り matcher を返す
  */
-export type E2EExpectFunction = (actual: any, message?: string  ) => E2EMatcher;
+export type E2EExpectFunction = (actual: any, message?: string) => E2EMatcher;

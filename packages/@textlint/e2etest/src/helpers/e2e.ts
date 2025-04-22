@@ -13,8 +13,32 @@
 // <<
 
 // --- imports
+<<<<<<< HEAD
+||||||| parent of 61113ec (chore: format by dprint)
+// setup methods
+import { setE2EExpect, } from './core/e2e-expect-runner';
+import { initializeFixtureBaseDir, } from './utils/e2e-fixture-paths';
+
+=======
+// setup methods
+import { setE2EExpect } from './core/e2e-expect-runner';
+import { initializeFixtureBaseDir } from './utils/e2e-fixture-paths';
+
+>>>>>>> 61113ec (chore: format by dprint)
 // helpers (utils)
+<<<<<<< HEAD
 import { lintFileHelper } from './utils/e2e-lintfile-helper';
+||||||| parent of 61113ec (chore: format by dprint)
+import { fixturePaths, } from './utils/e2e-fixture-paths';
+
+import { lintFileHelper, } from './utils/e2e-lintfile-helper';
+import { lintMarkdownHelper, } from './utils/e2e-linttmarkdown-helper';
+=======
+import { fixturePaths } from './utils/e2e-fixture-paths';
+
+import { lintFileHelper } from './utils/e2e-lintfile-helper';
+import { lintMarkdownHelper } from './utils/e2e-linttmarkdown-helper';
+>>>>>>> 61113ec (chore: format by dprint)
 
 //  factories
 import { e2eFactories } from './testcases/e2e-testcase-factory';
@@ -41,12 +65,19 @@ export const E2E = {
 
 // 個別ユーティリティ
 /** lintFileHelper モジュール：parser / linter / validator の統合オブジェクト */
+<<<<<<< HEAD
 export { lintFileHelper };
 
 /** DI用expectセッター */
 export { setE2EExpect } from './core/e2e-expect-runner';
+||||||| parent of 61113ec (chore: format by dprint)
+export { lintFileHelper, lintMarkdownHelper, };
+=======
+export { lintFileHelper, lintMarkdownHelper };
+>>>>>>> 61113ec (chore: format by dprint)
 
 /**  E2E ユニットテスト用 テストケースファクトリー */
+<<<<<<< HEAD
 export {
   createE2ELintTestCase,
   createE2EFixtureTestCases,
@@ -55,3 +86,9 @@ export {
 
 // E2E
 export default E2E;
+||||||| parent of 61113ec (chore: format by dprint)
+export { createE2EFixtureTestCases, createE2ELintTestCase, } from './testcases/e2e-testcase-factory';
+
+=======
+export { createE2EFixtureTestCases, createE2ELintTestCase } from './testcases/e2e-testcase-factory';
+>>>>>>> 61113ec (chore: format by dprint)

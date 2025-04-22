@@ -7,13 +7,13 @@
 // https://opensource.org/licenses/MIT
 
 // vitest
-import { beforeAll, beforeEach, describe, expect, it, } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
 // lib
 import path from 'path';
 
 // fixture-path utils
-import { getFixtureTestPath, initializeFixtureBaseDir, } from '../e2e-fixture-paths';
+import { getFixtureTestPath, initializeFixtureBaseDir } from '../e2e-fixture-paths';
 
 // --- constants
 const mockBaseDir = '<mock>';
@@ -21,18 +21,18 @@ const mockBaseDir = '<mock>';
 // --- tests
 describe('e2e-fixture-paths: not initialize', () => {
   it('no initialized baseDir is  throw error', () => {
-    expect(() => getFixtureTestPath('foo', 'bar',)).toThrow();
+    expect(() => getFixtureTestPath('foo', 'bar')).toThrow();
   });
 });
 
 describe('e2e-fixture-paths: initialize', () => {
   beforeEach(() => {
-    initializeFixtureBaseDir(mockBaseDir,);
-  },);
+    initializeFixtureBaseDir(mockBaseDir);
+  });
 
   it('returns correct path after initialization', () => {
-    const fixturePath = getFixtureTestPath('foo', 'bar',);
-    const expected = path.join(mockBaseDir, 'foo', 'bar',);
-    expect(expected,).toBe(fixturePath,);
+    const fixturePath = getFixtureTestPath('foo', 'bar');
+    const expected = path.join(mockBaseDir, 'foo', 'bar');
+    expect(expected).toBe(fixturePath);
   });
 });

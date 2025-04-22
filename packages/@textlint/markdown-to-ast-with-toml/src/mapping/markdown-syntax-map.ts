@@ -1,6 +1,6 @@
 // LICENSE : MIT
 'use strict';
-import { ASTNodeTypes } from '@textlint/ast-node-types';
+import { ASTNodeTypes, } from '@textlint/ast-node-types';
 
 export const SyntaxMap = {
   root: ASTNodeTypes.Document,

@@ -9,7 +9,6 @@
 // types
 import type { E2EErrorMessage, E2ETestOptions } from '@/types';
 
-
 /**
  * Lint 実行後の結果を保持する構造体。
  * - TextlintKernel の `lintText()` や E2E テストにおける出力結果として使用。
@@ -34,7 +33,6 @@ type E2EParsedFixtureInput = {
   text: string;
   /** 入力ファイルの拡張子（例: `.md`, `.txt`） */
   ext: string;
-
 };
 
 /**

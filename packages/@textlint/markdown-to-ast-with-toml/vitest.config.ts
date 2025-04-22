@@ -12,9 +12,9 @@
 //
 // <<
 
-import { defineConfig } from 'vitest/config';
+import { defineConfig, } from 'vitest/config';
 import baseConfig from '../../../shared/configs/vitest.config.base';
 
 export default defineConfig({
   ...baseConfig,
-});
+},);

@@ -2,8 +2,8 @@
 //
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
-import { parse } from '../src/index';
-import { runCategorizedFixtureTests, runUnitFixtureTests } from './helpers/run-fixture-tests';
+import { parse, } from '../src/index';
+import { runCategorizedFixtureTests, runUnitFixtureTests, } from './helpers/run-fixture-tests';
 
 // Yaml Frontmatter
-runCategorizedFixtureTests('fixtures', parse);
+runCategorizedFixtureTests('fixtures', parse,);

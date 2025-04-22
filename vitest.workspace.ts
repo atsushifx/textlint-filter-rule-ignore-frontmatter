@@ -1,4 +1,4 @@
-import { defineWorkspace, } from 'vitest/config';
+import { defineWorkspace } from 'vitest/config';
 
 export default defineWorkspace([
   './shared/configs/vitest.config.base.ts',
@@ -8,4 +8,4 @@ export default defineWorkspace([
   './packages/@textlint/markdown-to-ast-with-toml/vitest.config.ts',
   './packages/@textlint/e2etest/vitest.config.ts',
   './packages/@textlint/e2etest/vitest.config.e2e.ts',
-],);
+]);

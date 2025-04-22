@@ -19,7 +19,7 @@ const Configuration = {
    * Resolve and load @commitlint/config-conventional from node_modules.
    * Referenced packages must be installed
    */
-  extends: ['@commitlint/config-conventional'],
+  extends: ['@commitlint/config-conventional',],
 
   // Output formatter used by commitlint CLI
   formatter: '@commitlint/format',

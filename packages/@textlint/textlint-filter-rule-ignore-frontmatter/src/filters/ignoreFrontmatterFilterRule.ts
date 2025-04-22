@@ -11,23 +11,23 @@ import type {
 } from '@textlint/types';
 
 // utils
-import { getFrontmatterRange } from '../utils/getFrontmatterRange';
+import { getFrontmatterRange, } from '../utils/getFrontmatterRange';
 
 // filter main
 const ignoreFrontmatterFilterRule: TextlintFilterRuleModule = (
   context: TextlintFilterRuleContext,
 ): TextlintFilterRuleReportHandler => {
   const text = context.getSource();
-  console.debug('[filter] full text:', JSON.stringify(text));
+  console.debug('[filter] full text:', JSON.stringify(text,),);
 
-  const delimiters = ['+++', '---'];
+  const delimiters = ['+++', '---',];
   for (const delimiter of delimiters) {
-    const range = getFrontmatterRange(text, delimiter);
+    const range = getFrontmatterRange(text, delimiter,);
     if (range) {
-      const [start, end] = range;
-      const ignored = text.slice(start, end);
-      console.debug(`[ignore-frontmatter] Ignoring (${start}-${end}):\n${JSON.stringify(ignored)}`);
-      context.shouldIgnore(range, {});
+      const [start, end,] = range;
+      const ignored = text.slice(start, end,);
+      console.debug(`[ignore-frontmatter] Ignoring (${start}-${end}):\n${JSON.stringify(ignored,)}`,);
+      context.shouldIgnore(range, {},);
       break;
     }
   }
@@ -41,4 +41,4 @@ const ignoreFrontmatterFilterRule: TextlintFilterRuleModule = (
 };
 
 // export
-export { ignoreFrontmatterFilterRule };
+export { ignoreFrontmatterFilterRule, };

@@ -15,7 +15,7 @@
 //
 // <<
 
-import { defineConfig } from 'tsup';
+import { defineConfig, } from 'tsup';
 
 export default defineConfig({
   entry: [
@@ -25,7 +25,7 @@ export default defineConfig({
     '!src/**/*.spec.ts',
     '!src/tests/**',
   ],
-  format: ['cjs', 'esm'],
+  format: ['cjs', 'esm',],
   dts: true,
   outDir: 'dist',
   clean: true,
@@ -40,4 +40,4 @@ export default defineConfig({
     'tsconfig.json',
     '**/types/**',
   ],
-});
+},);

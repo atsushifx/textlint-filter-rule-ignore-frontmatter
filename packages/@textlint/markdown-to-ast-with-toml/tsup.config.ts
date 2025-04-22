@@ -15,13 +15,13 @@
 //
 // <<
 
-import { defineConfig } from 'tsup';
-import { baseConfig } from '../../../shared/configs/tsup.config.base';
+import { defineConfig, } from 'tsup';
+import { baseConfig, } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,
   clean: true,
-  format: ['cjs', 'esm'],
+  format: ['cjs', 'esm',],
   entry: [
     'src/**/*',
     // exclude tests
@@ -35,4 +35,4 @@ export default defineConfig({
   },
   tsconfig: './tsconfig.json',
   outDir: 'lib', // for CJS
-});
+},);

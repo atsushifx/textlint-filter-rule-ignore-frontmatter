@@ -14,7 +14,7 @@
 
 // libs
 import path from 'path';
-import { defineConfig, } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 // common config
 import baseConfig from '../../../shared/configs/vitest.config.base';
@@ -27,7 +27,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src',),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
-},);
+});

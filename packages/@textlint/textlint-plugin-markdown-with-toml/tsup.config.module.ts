@@ -15,12 +15,12 @@
 //
 // <<
 
-import { defineConfig } from 'tsup';
-import { baseConfig } from '../../../shared/configs/tsup.config.base';
+import { defineConfig, } from 'tsup';
+import { baseConfig, } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({
   ...baseConfig,
-  format: ['esm'],
+  format: ['esm',],
   entry: [
     'src/**/*',
     // exclude tests
@@ -30,4 +30,4 @@ export default defineConfig({
   ],
   tsconfig: './tsconfig.json',
   outDir: 'module', // for ESM
-});
+},);
