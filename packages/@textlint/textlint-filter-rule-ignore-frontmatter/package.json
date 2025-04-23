@@ -16,18 +16,22 @@
     "zola"
   ],
   "scripts": {
-    "build": "tsup",
-    "clean": "rimraf dist .tsbuildinfo .turbo .vitest",
+    "build": "pnpm run build:cjs && pnpm run build:esm",
+    "clean": "rimraf lib module",
     "format:dprint": "dprint fmt",
     "check:dprint": "dprint check",
     "check:types": "tsc --noEmit",
     "check:spellcheck": "pnpm exec cspell --config .vscode/cspell.json",
-    "lint": "pnpm exec eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "pnpm exec eslint \"src/**/*.{ts,tsx}\" --fix",
+    "lint": "pnpm exec eslint src --cache --cache-location .cache/eslint-cache/",
+    "lint:fix": "pnpm run lint -- --fix",
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
-    "test": "pnpm exec vitest run",
-    "test:watch": "pnpm exec vitest",
-    "sync:configs": "bash ../../../scripts/sync_configs.sh . "
+    "test": "pnpm run test:develop && pnpm run test:ci",
+    "test:watch": "pnpm exec vitest --watch",
+    "sync:configs": "bash ../../../scripts/sync_configs.sh .",
+    "build:cjs": "tsup --config tsup.config.ts",
+    "build:esm": "tsup --config tsup.config.module.ts",
+    "test:ci": "pnpm exec vitest run",
+    "test:develop": "pnpm exec vitest run --config ./vitest.config.unit.ts"
   },
   "files": [
     "dist",

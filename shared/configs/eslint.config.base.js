@@ -28,6 +28,12 @@ export default [
 
   {
     files: ['src/**/*.ts', 'tests/**/*.ts', 'types/**.*.ts'],
+    ignores: [
+      '**/lib/**',
+      '**/module/**',
+      '**/dist/**',
+      '**/node_modules/**',
+    ],
     languageOptions: {
       parser: tsparser,
       parserOptions: {

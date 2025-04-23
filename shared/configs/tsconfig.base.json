@@ -16,10 +16,6 @@
     "declaration": true,
     "declarationMap": true,
     // typesRoots : /shared/configsカラの相対パス
-    "typeRoots": [
-      "../types/",
-      "../../node_modules/@types/"
-    ],
     // ✅ 出力・ソースマップ
     "sourceMap": false,
     "newLine": "LF",

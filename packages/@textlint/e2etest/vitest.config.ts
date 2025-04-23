@@ -14,10 +14,16 @@
 
 // libs
 import path from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+// system config
 import { defineConfig } from 'vitest/config';
 
-// common config
+// user common config
 import baseConfig from '../../../shared/configs/vitest.config.base';
+
+// constants
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // config
 export default defineConfig({

@@ -20,7 +20,7 @@ import tsParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
 
 // import form common base config
-import baseConfig from "../../../shared/configs/eslint.config.base.js";
+import baseConfig from '../../../shared/configs/eslint.config.base.js';
 
 // settings
 export default [

@@ -11,6 +11,9 @@
 // ESLint configuration for check types
 //<<
 
+// import form common base config
+import baseConfig from "../../../shared/configs/eslint.config.typed.base.js";
+
 // libs
 import path from "path";
 

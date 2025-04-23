@@ -16,7 +16,10 @@
 //
 // <<
 
+// system config
 import { defineConfig } from 'tsup';
+
+// user config
 import { baseConfig } from '../../../shared/configs/tsup.config.base';
 
 export default defineConfig({

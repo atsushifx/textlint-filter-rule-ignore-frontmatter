@@ -68,6 +68,9 @@ importers:
       '@textlint/kernel':
         specifier: ^14.6.0
         version: 14.6.0
+      '@textlint/textlint-plugin-markdown':
+        specifier: ^14.6.0
+        version: 14.6.0
       '@textlint/types':
         specifier: ^14.6.0
         version: 14.6.0
