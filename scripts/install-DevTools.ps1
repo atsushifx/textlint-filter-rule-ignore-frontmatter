@@ -88,6 +88,7 @@ function main {
         "commitlint",
         "@commitlint/cli",
         "@commitlint/config-conventional",
+
         # Spell Checker
         "cspell"
     )

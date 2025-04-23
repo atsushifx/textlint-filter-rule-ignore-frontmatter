@@ -49,8 +49,6 @@ export default [
       ...tseslint.configs.recommended.rules,
       // string ts
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/prefer-nullish-coalescing': 'warn',
-      '@typescript-eslint/prefer-optional-chain': 'warn',
       //
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
@@ -65,12 +63,6 @@ export default [
       }],
       // ✅ 通常関数を禁止し、関数式に統一
       'func-style': ['error', 'expression'],
-
-      // ✅ 明示的な戻り値型（お好みで）
-      '@typescript-eslint/explicit-function-return-type': ['warn', {
-        allowExpressions: true,
-        allowConciseArrowFunctionExpressionsStartingWithVoid: true,
-      }],
     },
     settings: {
       'import/resolver': {
