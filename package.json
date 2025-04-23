@@ -1,7 +1,7 @@
 {
   "name": "textlint-filter-rule-ignore-frontmatter",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Monorepo for @textlint/textlint-filter-rule-ignore-frontmatter: skips YAML/TOML front matter in markdown. Useful with Zola, Hugo, etc.",
   "author": "Furukawa Atsushi <atsushifx@gmail.com>",
   "license": "MIT",
@@ -20,11 +20,12 @@
   "scripts": {
     "test:ci": "pnpm exec lerna run test:ci",
     "clean": "pnpm exec lerna run clean",
-    "format:dprint": "dprint fmt --config ./shared/configs/d@rint.base.jsonc ",
-    "check:dprint": "dprint check --config ./shared/configs/d@rint.base.jsonc ",
+    "format:dprint": "dprint fmt --config ./shared/configs/dprint.base.jsonc ",
+    "check:dprint": "dprint check --config ./shared/configs/dprint.base.jsonc ",
     "check:types": "tsc --noEmit",
-    "sync:configs": "bash ./scripts/sync_configs.sh . ",
-    "sync:configs:all": "pnpm run sync:configs all && pnpm exec lerna run sync:configs -- all"
+    "lint": "pnpm exec lerna run lint",
+    "sync:configs": "bash ./scripts/sync_configs.sh ",
+    "sync:configs:all": "pnpm run sync:configs  all && pnpm exec lerna run sync:configs -- all"
   },
   "packageManager": "pnpm@10.9.0",
   "devDependencies": {

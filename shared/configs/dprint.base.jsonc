@@ -10,11 +10,15 @@
     "**/*.ts",
     "**/*.json",
     "**/*.jsonc",
+    "**/*.{yml.yaml}",
     "shared/configs/**/*",
   ],
   "excludes": [
-    "**/node_*",
+    "**/node_modules/**",
     "**/*lock*",
+    "**/lib/**",
+    "**/module/**",
+    "**/dist/**",
   ],
   // plugins
   "plugins": [
