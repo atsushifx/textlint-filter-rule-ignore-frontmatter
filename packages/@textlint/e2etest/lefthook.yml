@@ -1,6 +1,6 @@
 ## @(#) : lefthook config
 #
-# @version 1.0.0
+# @version 1.0.1
 # @author  atsushifx <atsushifx@gmail.com>
 # @date    2024-02-05
 # @license MIT
@@ -21,7 +21,18 @@ pre-commit:
 
     secretlint:
       glob: "**/*"
-      run: secretlint --maskSecrets --secretlintignore .gitignore "{staged_files}"
+      run: secretlint --maskSecrets --no-color --secretlintignore .gitignore "{staged_files}"
+
+    dprint:
+      run: dprint check --staged .
+
+#   eslint:
+#     skip: true
+#     run: pnpm run lint "{staged_files}"
+
+#   eslint:types:
+#     skip: true
+#     run: pnpm run lint:types "{staged_files}"
 
 # check commit message style
 commit-msg:

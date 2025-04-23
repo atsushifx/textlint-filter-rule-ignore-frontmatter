@@ -22,7 +22,7 @@
     "check:dprint": "dprint check",
     "check:types": "tsc --noEmit",
     "check:spellcheck": "pnpm exec cspell --config .vscode/cspell.json",
-    "lint": "pnpm exec eslint src --cache --cache-location .cache/eslint-cache/",
+    "lint": "pnpm exec eslint --cache --cache-location .cache/eslint-cache/ ",
     "lint:fix": "pnpm run lint -- --fix",
     "lint:secrets": "secretlint --maskSecrets --secretlintignore .gitignore **/*",
     "test": "pnpm run test:develop && pnpm run test:ci",
@@ -31,7 +31,8 @@
     "build:cjs": "tsup --config tsup.config.ts",
     "build:esm": "tsup --config tsup.config.module.ts",
     "test:ci": "pnpm exec vitest run",
-    "test:develop": "pnpm exec vitest run --config ./vitest.config.unit.ts"
+    "test:develop": "pnpm exec vitest run --config ./vitest.config.unit.ts",
+    "lint:types": "pnpm exec eslint --config ./eslint.config.typed.js --cache --cache-location .cache/eslint-cache/ "
   },
   "files": [
     "dist",

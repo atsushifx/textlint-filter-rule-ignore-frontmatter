@@ -10,7 +10,8 @@
     "**/*.ts",
     "**/*.json",
     "**/*.jsonc",
-    "**/*.{yml.yaml}",
+    "**/*.yml",
+    "**/*.yaml",
     "shared/configs/**/*",
   ],
   "excludes": [

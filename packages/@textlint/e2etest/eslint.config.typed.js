@@ -27,7 +27,7 @@ export default [
   },
   ...baseConfig,
   {
-    files: ['src/**/*.ts', 'tests/**/*.ts', 'types/**.*.ts'],
+    files: ['src/**/*.ts', 'tests/**/*.ts', 'types/**/*.ts'],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.json'],

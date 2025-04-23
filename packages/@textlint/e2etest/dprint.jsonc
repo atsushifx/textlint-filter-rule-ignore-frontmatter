@@ -8,10 +8,10 @@
   // file types
   "includes": [
     "**/*.ts",
-    "**/*.js",
     "**/*.json",
     "**/*.jsonc",
-    "**/*.{yml.yaml}",
+    "**/*.yml",
+    "**/*.yaml",
     "shared/configs/**/*",
   ],
   "excludes": [
