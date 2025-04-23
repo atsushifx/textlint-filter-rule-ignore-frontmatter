@@ -68,10 +68,10 @@ type E2EParsedFixture = {
  * console.log(result.messages);
  */
 type E2ELintFunction = (
-  text: string,
-  inputPath: string,
-  ext: string,
-  options: E2ETestOptions,
+  _text: string,
+  _inputPath: string,
+  _ext: string,
+  _options: E2ETestOptions,
 ) => Promise<E2ELintResult>;
 
 // --- export

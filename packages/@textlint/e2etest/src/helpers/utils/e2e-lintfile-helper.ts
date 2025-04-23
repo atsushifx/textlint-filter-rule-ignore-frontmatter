@@ -13,21 +13,24 @@
 
 // --- imports
 // types
+import fs from 'fs';
+import path from 'path';
+
+import { TextlintKernel } from '@textlint/kernel';
+
+import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
+import { E2E } from '@/index';
+
 import type { E2EErrorMessage, E2ETestOptions } from '@/types';
 import type { E2ELintFunction, E2ELintResult, E2EParsedFixture, E2EParsedFixtureInput } from '@/types/e2e-lint.types';
 
 // expect from DI runner
-import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
 
 // libs
-import fs from 'fs';
-import path from 'path';
 
 // textlint
-import { TextlintKernel } from '@textlint/kernel';
 
 // -- from This Project
-import { E2E } from '@/index';
 
 // --- constants
 /**
@@ -60,7 +63,7 @@ const parseLintFile = (caseDir: string, caseName: string): E2EParsedFixture => {
   }
 
   // 入力
-  const inputPath = path.join(absCaseSuiteDir, inputFile!);
+  const inputPath = path.join(absCaseSuiteDir, inputFile);
   const text = fs.readFileSync(inputPath, 'utf8');
   const ext = path.extname(inputPath) || '.md';
   const parsedInput: E2EParsedFixtureInput = { inputPath, text, ext };

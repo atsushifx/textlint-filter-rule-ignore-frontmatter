@@ -67,7 +67,6 @@ export default [
       import: importPlugin,
     },
     rules: {
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'import/order': 'warn',
     },
   },

@@ -42,6 +42,10 @@
       //      ]
     },
     // ✅ 型補完
+    "typeRoots": [ // /shared/configsカラの相対パス
+      "../types",
+      "../../node_modules/@types/",
+    ],
     "types": [
       "node",
     ]

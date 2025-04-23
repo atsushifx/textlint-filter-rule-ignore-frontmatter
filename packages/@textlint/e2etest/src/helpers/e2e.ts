@@ -15,16 +15,15 @@
 // --- imports<
 // setup methods
 import { setE2EExpect } from './core/e2e-expect-runner';
+import { e2eFactories } from './testcases/e2e-testcase-factory';
 import { initializeFixtureBaseDir } from './utils/e2e-fixture-paths';
-
+//
 // helpers (utils)
 import { fixturePaths } from './utils/e2e-fixture-paths';
-
 import { lintFileHelper } from './utils/e2e-lintfile-helper';
 import { lintMarkdownHelper } from './utils/e2e-linttmarkdown-helper';
 
 //  factories
-import { e2eFactories } from './testcases/e2e-testcase-factory';
 
 // --- exports
 /**

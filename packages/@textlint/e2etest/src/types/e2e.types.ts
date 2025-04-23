@@ -24,11 +24,9 @@ type E2ERuleEntry = {
 
 /**
  * 拡張子に応じたプラグイン設定マッピング
- *
- * 例: { ".md": {...}, ".custom": {...} }
+ * 例: { ".md": markdownPlugin, ".toml": tomlPlugin }
  */
 type E2EPluginOptionsByExt = Record<string, any>;
-
 /**
  * E2Eテスト時に必要となる各種設定を集約した構造体
  *

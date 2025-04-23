@@ -56,7 +56,7 @@ export default [
       // string ts
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       //
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'import/no-unresolved': 'error',
       'import/order': ['warn', {
