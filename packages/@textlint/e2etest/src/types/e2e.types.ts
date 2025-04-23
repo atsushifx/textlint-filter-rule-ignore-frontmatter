@@ -7,6 +7,9 @@
 // https://opensource.org/licenses/MIT
 
 // types
+// - internal types
+import type { E2EPluginOptionsByExt } from '@/types';
+// - textlint
 import type { TextlintKernel } from '@textlint/kernel';
 import type { TextlintPluginCreator, TextlintRuleModule } from '@textlint/types';
 
@@ -22,11 +25,6 @@ type E2ERuleEntry = {
   rule: TextlintRuleModule;
 };
 
-/**
- * 拡張子に応じたプラグイン設定マッピング
- * 例: { ".md": markdownPlugin, ".toml": tomlPlugin }
- */
-type E2EPluginOptionsByExt = Record<string, any>;
 /**
  * E2Eテスト時に必要となる各種設定を集約した構造体
  *

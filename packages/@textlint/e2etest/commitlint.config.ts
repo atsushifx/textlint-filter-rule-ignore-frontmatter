@@ -14,11 +14,12 @@
  *
  * <<
  */
-// base Config
-import baseConfig from '../../../shared/configs/commitlint.config.base';
 
 // type
 import type { UserConfig } from '@commitlint/types';
+
+// base Config
+import baseConfig from '../../../shared/configs/commitlint.config.base';
 
 // config
 const config: UserConfig = {

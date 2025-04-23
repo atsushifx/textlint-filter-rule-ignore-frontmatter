@@ -8,15 +8,14 @@
 // 指定フォルダ内の fixture パターンに従って、E2E テストケースを生成するファクトリー。
 // <<
 
-// types
+// libs
 import path from 'path';
 
+// e2e
 import { lintFileHelper } from '@/index';
 
-import type { E2ETestOptions } from '@/types';
-// libs
-
-// lint
+// types
+import type { E2ELintTestCase, E2ETestOptions } from '@/types';
 
 // --- utility functions
 /**
@@ -27,7 +26,7 @@ export const createE2ELintTestCase = (
   caseName: string,
   options: E2ETestOptions,
   label?: string,
-) => {
+): E2ELintTestCase => {
   const categoryName = path.basename(caseDir);
   const suiteTitle = `suite: ${categoryName} / case: ${caseName}`;
   const testLabel = label ?? `${caseDir}/${caseName}`;
