@@ -9,10 +9,16 @@
 // --- exports (type definitions)
 
 /** E2E テスト用*/
-export type { E2EErrorMessage, E2EPluginOptionsByExt, E2ERuleEntry, E2ETestOptions } from './e2e.types';
+export type { E2EErrorMessage, E2ERuleEntry, E2ETestOptions } from './e2e.types';
 
-/** E2E テスト用 */
+/** E2E テスト用: テストケースファクトリ型 */
+export type { E2ELintTestCase } from './e2e-factories.types';
+
+/** E2E テスト用: プラグイン設定マッピング */
+export type { E2EPluginOptionsByExt, E2EPluginSetting } from './e2e-plugin.types';
+
+/** E2E テスト用: Lint系 */
 export type { E2ELintFunction, E2ELintResult, E2EParsedFixture } from './e2e-lint.types';
 
-/** E2E テスト用: ユニットテスト用 expect */
+/** E2E テスト用: Expect系 */
 export type { E2EExpectFunction } from './e2e-expect.types';

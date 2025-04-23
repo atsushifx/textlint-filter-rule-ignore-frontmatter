@@ -7,10 +7,11 @@
 // https://opensource.org/licenses/MIT
 
 // vitest
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import path from 'path';
+
+import { beforeEach, describe, expect, it } from 'vitest';
 
 // lib
-import path from 'path';
 
 // fixture-path utils
 import { getFixtureTestPath, initializeFixtureBaseDir } from '../e2e-fixture-paths';

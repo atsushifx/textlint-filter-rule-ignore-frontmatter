@@ -21,20 +21,17 @@ import path from 'path';
  */
 let _baseAbsDir: string | undefined;
 
-// --- exports
+// --- functions
 /**
- * Fixture テストのルートディレクトリを初期化します。
- * すでに初期化されている場合は上書きされません。
+ * 現在設定されているディレクトリパスを初期化します。
  *
- * @param dir - テストケースの基準となる絶対パス
+ * @param dir 設定するディレクトリ
  * @returns 現在設定されているディレクトリパス
  */
-export function initializeFixtureBaseDir(dir: string): string {
-  if (!_baseAbsDir) {
-    _baseAbsDir = dir;
-  }
+export const initializeFixtureBaseDir = (dir: string): string => {
+  _baseAbsDir ??= dir;
   return _baseAbsDir || '';
-}
+};
 
 /**
  * 現在設定されている Fixture テストのルートディレクトリを取得します。
@@ -43,10 +40,12 @@ export function initializeFixtureBaseDir(dir: string): string {
  * @throws エラー: 初期化されていない場合
  * @returns Fixture テストの基準ディレクトリ
  */
-export function getFixtureBaseDir(): string {
-  if (!_baseAbsDir) { throw new Error('Fixture base dir not initialized.'); }
+export const getFixtureBaseDir = (): string => {
+  if (!_baseAbsDir) {
+    throw new Error('Fixture base dir not initialized.');
+  }
   return _baseAbsDir;
-}
+};
 
 /**
  * テスト対象の Fixture パスを取得します。
@@ -68,7 +67,6 @@ export const getFixtureTestPath = (caseDir: string, caseName: string): string =>
  * - `getFixtureTestPath`: 指定ケースのパス取得
  */
 export const fixturePaths = {
-  initializeFixtureBaseDir,
   getFixtureTestPath,
   getFixtureBaseDir,
 };

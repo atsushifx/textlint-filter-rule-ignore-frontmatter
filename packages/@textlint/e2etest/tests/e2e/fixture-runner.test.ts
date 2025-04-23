@@ -5,60 +5,60 @@
 // Released under the MIT License
 // https://opensource.org/licenses/MIT
 
+// TextLint
+import MarkdownProcessor from '@textlint/textlint-plugin-markdown';
+import noToDoRule from 'textlint-rule-no-todo';
+//
 // vitest
 import { describe, expect, it } from 'vitest';
 
-// ---- @textlint/e2etest
+// E2E Test
+import { E2E } from '@/index';
+
 // types
-import { E2EPluginOptionsByExt, E2ETestOptions } from '@/types';
-
-//  libs
-
-// functions
-import { createE2ELintTestCase, setE2EExpect } from '@/index';
-
-// -- textlint plugin
-import MarkdownProcessor from '@textlint/textlint-plugin-markdown';
+import type { E2ETestOptions } from '@/types';
 
 // ────────────────────────────────────────────────────────────
 // テスト実行メイン
 // ────────────────────────────────────────────────────────────
 
 // テスト用定数
-const defaultPlugin = {
+const _defaultPlugin = {
   Processor: MarkdownProcessor.Processor,
   availableExtensions: () => ['.md'],
 };
 
-const defaultOptions: E2ETestOptions = {
-  plugin: defaultPlugin,
+// テスト用定数
+const _defaultOptions: E2ETestOptions = {
+  plugin: _defaultPlugin,
   pluginOptionsByExt: {
     '.md': {}, //
   },
   rules: [
     {
       ruleId: 'no-todo',
-      rule: require('textlint-rule-no-todo').default, // 必要に応じて差し替え
+      rule: noToDoRule,
     },
   ],
 };
-const createE2ETestOptions = (): E2ETestOptions => defaultOptions;
 
-function testRunner() {
-  // カテゴリごとにテストを実行
-  // const caseDir = 'fixtures';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const createE2ETestOptions = (): E2ETestOptions => _defaultOptions;
+
+const testRunner = (): void => {
   const caseDirUnit = 'fixtures/markdown-fixtures';
   const caseName = 'todo-in-markdown';
-  const options = createE2ETestOptions();
 
   describe(`fixture ${caseDirUnit}/${caseName} 's test`, () => {
     it('smoke test', async () => {
       expect(true).toBe(true);
     });
   });
-}
-// ────────────────────────────────────────────────────────────
+};
+
+// -----------
 // Kick off
-// ────────────────────────────────────────────────────────────
-setE2EExpect(expect);
+// -----------
+E2E.setup.initializeFixtureBaseDir(__dirname);
+E2E.setup.setE2EExpect(expect);
 testRunner();

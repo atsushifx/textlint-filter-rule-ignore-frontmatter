@@ -6,32 +6,33 @@
 // https://opensource.org/licenses/MIT
 
 // vitest
-
-import { beforeAll, describe, expect, it } from 'vitest';
-
-// DI Container
-import { setE2EExpect } from '@/helpers';
+import { describe, expect, it } from 'vitest';
 
 // helpers
-import { lintMarkdownHelper } from '@/helpers';
-import { E2EErrorMessage, E2ETestOptions } from '@/types';
+import { lintMarkdownHelper } from '@/helpers/';
+// E2E
+import { E2E } from '@/index';
 
 // --- constants
 const inputMarkdown = `
-  filename: input.md
-  input:
-  -  [ ] TODO
-`;
-const outputJson = `
-  [
-    { "line": 1, "message": "Found TODO" }
-  ]
-`;
-describe('linttMarkdown', () => {
-  beforeAll(() => {
-    setE2EExpect(expect);
-  });
+  input: input.md
+  # Header1
 
+  TDOO: this is bad todo
+
+  - [ ] TODO	: this is todo
+  `;
+// const outputJson = `
+//  [
+//    { "line": 1, "message": "Found TODO" }
+//  ]
+// `;
+
+// テスト実行
+E2E.setup.setE2EExpect(expect);
+E2E.setup.initializeFixtureBaseDir(__dirname);
+
+describe('linttMarkdown', () => {
   it('markdown parser is correct', () => {
     const parsedInput = lintMarkdownHelper.parseMarkdownInput(inputMarkdown);
     expect(parsedInput.inputPath).toBe('input.md');

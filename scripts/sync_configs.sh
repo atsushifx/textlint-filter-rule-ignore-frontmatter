@@ -22,6 +22,7 @@ set -euCo pipefail
 ##  Constants
 readonly REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 readonly CONFIG_DIR="${REPO_ROOT}/shared/configs"
+readonly SCRIPT_SYNC="${REPO_ROOT}/scripts/sync-package-scripts.ts"
 
 ## Global Flags
 FLAG_DRY_RUN=false
@@ -72,6 +73,13 @@ sync_config_type() {
       config_files=("secretlintrc.base.yml:.secretlintrc.yml")
       copy_config_files config_files "$target_dir"
       ;;
+    package)
+      echo "🔧 [package.json:scripts]"
+      DRY_RUN=""
+      $FLAG_DRY_RUN && DRY_RUN="--dry-run"
+      pnpm exec tsx "$SCRIPT_SYNC" "$target_dir" "$REPO_ROOT" "$DRY_RUN"
+      ;;
+
     *)
       echo "❌ Unknown config_type: $config_type"
       echo "   Must be one of: dprint | lefthook | secretlint | all"
@@ -95,7 +103,7 @@ main() {
 
   # 💡 引数がない・または --help/-h のとき usage を出力して終了
   if [[ -z "$target_dir" || -z "$config_type" || "$target_dir" == "--help" || "$target_dir" == "-h" ]]; then
- 	print_usage
+ 	  print_usage
     exit 0
   fi
 
@@ -113,7 +121,7 @@ main() {
 
 
   if [[ "$config_type" == "all" ]]; then
-    local config_types=("dprint" "lefthook" "secretlint")
+    local config_types=("dprint" "lefthook" "secretlint" "package")
     for type in "${config_types[@]}"; do
       echo "🔧 [$type]"
       sync_config_type "$type" "$target_dir" || exit 1

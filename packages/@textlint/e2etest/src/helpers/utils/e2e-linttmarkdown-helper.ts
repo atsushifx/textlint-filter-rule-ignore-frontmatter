@@ -10,14 +10,15 @@
 
 // --- imports
 // types
-import type { E2EErrorMessage, E2ELintFunction, E2ELintResult, E2EParsedFixture, E2ETestOptions } from '@/types';
+import { TextlintKernel } from '@textlint/kernel';
 
 // textlint
-import { TextlintKernel } from '@textlint/kernel';
 
 // expect function 外挿用コンテナ
 import { getE2EExpect } from '@/helpers/core/e2e-expect-runner';
 import { E2EParsedFixtureInput } from '@/types/e2e-lint.types';
+
+import type { E2EErrorMessage, E2ELintFunction, E2ELintResult, E2ETestOptions } from '@/types';
 
 // -- constants
 /**

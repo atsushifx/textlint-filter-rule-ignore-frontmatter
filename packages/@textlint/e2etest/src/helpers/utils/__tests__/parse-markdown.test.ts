@@ -11,11 +11,12 @@ import { describe, expect, it } from 'vitest';
 // base
 import { E2E } from '@/index';
 
-// test module
 import { lintMarkdownHelper } from '../e2e-linttmarkdown-helper';
 
+// test module
+
 // --- tests
-const testRunner = () => {
+const testRunner = (): void => {
   describe('markdown parse test', () => {
     it('with input tag: and filename parse all', () => {
       const input = `

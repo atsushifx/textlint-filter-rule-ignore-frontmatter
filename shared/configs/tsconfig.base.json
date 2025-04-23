@@ -16,10 +16,6 @@
     "declaration": true,
     "declarationMap": true,
     // typesRoots : /shared/configsカラの相対パス
-    "typeRoots": [
-      "../types/",
-      "../../node_modules/@types/"
-    ],
     // ✅ 出力・ソースマップ
     "sourceMap": false,
     "newLine": "LF",
@@ -44,7 +40,14 @@
       //    "@textlinttest/*": [
       //
       //      ]
-    }
+    },
     // ✅ 型補完
+    "typeRoots": [ // /shared/configsカラの相対パス
+      "../types",
+      "../../node_modules/@types/",
+    ],
+    "types": [
+      "node",
+    ]
   }
 }
