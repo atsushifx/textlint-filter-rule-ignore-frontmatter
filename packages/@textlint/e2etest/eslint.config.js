@@ -12,7 +12,63 @@
 // Extends settings from the shared base ESLint config.
 //<<
 
+// libs
+import path from 'path';
+
+// plugins
+import tsParser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import';
+
 // import form common base config
 import baseConfig from "../../../shared/configs/eslint.config.base.js";
 
-export default baseConfig;
+// settings
+export default [
+  {
+    ignores: [
+      'lib/**',
+      'module/**',
+      'node_modules/**',
+    ],
+  },
+
+  ...baseConfig,
+
+  // source codes
+  {
+    files: [
+      'src/**/*.ts',
+      'types/**/*.ts',
+      'test/**/*.ts',
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: path.resolve(),
+      },
+    },
+  },
+  // setting files
+  {
+    files: [
+      '*.config*.ts',
+      '*.config*.js',
+    ],
+
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: false, // 型チェックを無効化
+        sourceType: 'module',
+        ecmaVersion: 'latest',
+      },
+    },
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'import/order': 'warn',
+    },
+  },
+];

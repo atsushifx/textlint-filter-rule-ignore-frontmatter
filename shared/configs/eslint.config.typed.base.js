@@ -14,13 +14,18 @@
 // import form common base config
 import baseConfig from './eslint.config.base.js';
 // rules
-// import tseslint from '@typescript-eslint/eslint-plugin';
+
+import tseslint from '@typescript-eslint/eslint-plugin';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   ...baseConfig,
 
   {
+    files: ['src/**/*.ts', 'tests/**/*.ts', 'types/**.*.ts'],
+    plugins: {
+      '@typescript-eslint': tseslint,
+    },
     rules: {
       // type check rules
       '@typescript-eslint/prefer-nullish-coalescing': 'warn',
@@ -29,9 +34,9 @@ export default [
         allowExpressions: true,
         allowConciseArrowFunctionExpressionsStartingWithVoid: true,
       }],
-      "@typescript-eslint/no-unnecessary-type-assertion": "warn",
-      "@typescript-eslint/no-unnecessary-condition": "warn",
-      "@typescript-eslint/restrict-template-expressions": "warn"
+      '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+      '@typescript-eslint/no-unnecessary-condition': 'warn',
+      '@typescript-eslint/restrict-template-expressions': 'warn',
     },
   },
 ];
