@@ -16,6 +16,8 @@
 *.log*
 *.diff
 *.patch
+*.*cache
+.cache
 
 ## ─── Editor (VSCode) ──────────────────────────────────────
 .vscode/*
